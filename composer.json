@@ -1,0 +1,18 @@
+{
+    "name": "stagiaire/transports_prudent",
+    "description": "site web de transports de produits pharmaceutique",
+    "autoload": {
+        "psr-4": {
+            "Stagiaire\\TransportsPrudent\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "hamid.achahboune",
+            "email": "hamid.achahboune@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.7"
+    }
+}
