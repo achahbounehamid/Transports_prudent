@@ -13,6 +13,7 @@
         }
     ],
     "require": {
-        "twig/twig": "^3.7"
+        "twig/twig": "^3.7",
+        "altorouter/altorouter": "^2.0"
     }
 }
