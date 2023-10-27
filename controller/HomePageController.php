@@ -1,19 +1,13 @@
 
 <?php
 
-class HomePageController
+require_once 'controller.php';
+
+class HomePageController extends Controller
 {
     public function home()
-    {
-        // Créer un environnement Twig
-        $loader = new \Twig\Loader\FilesystemLoader('./view/');
-        $twig = new \Twig\Environment($loader);
-
-        // Rendre la vue HomePage.html.twig
-        $template = $twig->load('HomePage.html.twig');
-        $content = $template->render();
-
-        // Afficher le contenu de la vue
-        echo $content;
-    }
+     {
+      
+        echo self::render('HomePage.html.twig', []);
+}
 }

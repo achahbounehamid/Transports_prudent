@@ -7,11 +7,6 @@ $router = new AltoRouter();
 
 $router->setBasePath('/php/projet_Stage/Transports_prudent');
 
-// Créez un environnement Twig
-$loader = new \Twig\Loader\FilesystemLoader('./view/');
-$twig = new \Twig\Environment($loader);
-
-
 
 // Définition des routes
 $router->map('GET', '/', 'HomePageController#home','home');
