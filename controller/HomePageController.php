@@ -5,7 +5,15 @@ class HomePageController
 {
     public function home()
     {
-        // Votre logique pour afficher la page d'accueil
-        echo 'Bienvenue sur la page d\'accueil';
+        // Créer un environnement Twig
+        $loader = new \Twig\Loader\FilesystemLoader('./view/');
+        $twig = new \Twig\Environment($loader);
+
+        // Rendre la vue HomePage.html.twig
+        $template = $twig->load('HomePage.html.twig');
+        $content = $template->render();
+
+        // Afficher le contenu de la vue
+        echo $content;
     }
 }

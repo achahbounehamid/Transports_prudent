@@ -1,12 +1,30 @@
 <?php
 // index.php
+require_once './vendor/autoload.php';
+require_once './vendor/altorouter/altorouter/AltoRouter.php';
 
-require 'vendor/autoload.php'; 
+$router = new AltoRouter();
 
-use AltoRouter;
+$router->setBasePath('/php/projet_Stage/Transports_prudent');
+
+// Créez un environnement Twig
+$loader = new \Twig\Loader\FilesystemLoader('./view/');
+$twig = new \Twig\Environment($loader);
 
 
-require 'routes.php';
 
-$controller = new MainController($router);
-$controller->handleRequest();
+// Définition des routes
+$router->map('GET', '/', 'HomePageController#home','home');
+
+$match = $router->match();
+// var_dump($match);
+
+if ($match) {
+    list($controller, $action) = explode('#', $match['target']);
+    require 'controller/' . $controller . '.php';
+    $controllerInstance = new $controller();
+    $controllerInstance->$action();
+} else {
+    // Gérer les routes inexistantes
+    echo 'Page non trouvée';
+}
