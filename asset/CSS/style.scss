@@ -3,7 +3,22 @@
     padding: 0;
 }
 
-h1{
-    font-size: medium;
-    color: red;
+header{
+    background-image: url("{{ ('/asset/images/prudent.jpg') }}");
+    background-size: cover;
+//     background-position: center;
+
 }
+
+body {
+    height: 200px;
+    
+}
+   
+  
+    footer{
+        background-color: aqua;
+        height: 100px;
+        display: flex;
+    }
+  
