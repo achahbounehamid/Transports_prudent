@@ -3,22 +3,90 @@
     padding: 0;
 }
 
-header{
-    background-image: url("{{ ('/asset/images/prudent.jpg') }}");
+header {
+    position: relative;
     background-size: cover;
-//     background-position: center;
+    background-position: center;
+    height: 100vh;
+    color: #fff;
+    text-align: center;
+  
+    .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+  
+      .titre {
+        position: absolute;
+        top: 70px;
+        left: 30px;
+        h1 {
+          font-size: 30px;
+          color:black;
+        }
+      }
+  
+      .logo {
+        position: absolute;
+        top: 60px;
+        right: 80px;
+        background-color: #fff;
+        border-radius: 10px;
+  
+        img {
+          width: 200px;
+          height: 100px;
+        }
+      }
+    }
+  
+    .image-arrier {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    //   background-image: url("/asset/images/camion.png");
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
 
+    }
+  }
+  .services{
+   display: flex;
+   justify-content:  space-evenly;
+   .commerce, .ressource-humaine, .exploitation{
+    img{
+        width: 300px;
+        height: 300px;
+        cursor: pointer;
+        background-color: gray;
+        border-radius: 50%;
+    }
+   }
+  }
+  footer{
+    .container{
+.paragraphe{
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    background-color: rgb(0, 234, 255);
+    height: 100px;
 }
+    }
+    .logo-footer{
+        text-align: center;
+        margin-top: 20px;
+    }
 
-body {
-    height: 200px;
-    
-}
+  }
+
    
   
-    footer{
-        background-color: aqua;
-        height: 100px;
-        display: flex;
-    }
   

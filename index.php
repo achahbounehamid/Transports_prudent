@@ -5,11 +5,12 @@ require_once './vendor/altorouter/altorouter/AltoRouter.php';
 
 $router = new AltoRouter();
 
-$router->setBasePath('/php/projet_Stage/Transports_prudent');
+$router->setBasePath('/Transports_prudent');
 
 
 // Définition des routes
 $router->map('GET', '/', 'HomePageController#home','home');
+$router->map('GET', '/graphiqueCommerce', 'CommerceController#commerce', 'commerce'); // Nouvelle route pour le graphique
 
 $match = $router->match();
 // var_dump($match);
