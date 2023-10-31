@@ -39,7 +39,7 @@ abstract class Controller
                 // Add the asset function to Twig environment
             self::$twig->addFunction(new \Twig\TwigFunction('asset', function ($assetPath) {
                 // Modify this logic according to your asset setup
-                $basePath = '/php/projet_Stage/Transports_prudent'; // Update with your base asset path
+                $basePath = '/Transports_prudent'; // Update with your base asset path
                 return $basePath . $assetPath;
             }));
         }

@@ -1,11 +1,11 @@
 <?php
-// index.php
+
 require_once './vendor/autoload.php';
 require_once './vendor/altorouter/altorouter/AltoRouter.php';
 
 $router = new AltoRouter();
 
-$router->setBasePath('/php/projet_Stage/Transports_prudent');
+$router->setBasePath('/Transports_prudent');
 
 
 // Définition des routes
