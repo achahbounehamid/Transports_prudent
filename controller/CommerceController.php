@@ -1,6 +1,6 @@
-<?php
+ <?php
 
-require_once './controller/Controller.php';
+require_once 'Controller.php';
 
 
 class CommerceController extends Controller
@@ -25,4 +25,4 @@ class CommerceController extends Controller
             'topClientsData' => $topClientsData,
         ]);
     }
-}
+} 

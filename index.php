@@ -1,5 +1,5 @@
 <?php
-// index.php
+
 require_once './vendor/autoload.php';
 require_once './vendor/altorouter/altorouter/AltoRouter.php';
 
