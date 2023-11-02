@@ -1,22 +1,16 @@
  <?php
 
-require_once 'Controller.php';
-
 
 class CommerceController extends Controller
 {
-    protected $commerceModel;
 
-    public function __construct(CommerceModel $commerceModel)
-    {
-        parent::__construct(); // Appel du constructeur du contrôleur principal
-        $this->commerceModel = $commerceModel;
-    }
 
     public function commerce()
     {
+        // Initialiser le modèle CommerceModel
+        $commerceModel = new CommerceModel();
         // Appel à la méthode du modèle pour obtenir les données du chiffre d'affaires des 10 premiers clients
-        $topClientsData = $this->commerceModel->getTopClientcADepartement();
+        $topClientsData = $commerceModel->getTopClientcADepartement();
 
         // Passer les données au template Twig
         $twig = $this->getTwig();

@@ -2,8 +2,19 @@
     margin: 0;
     padding: 0;
 }
+h2{
+ 
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+#myChartContainer {
+  width:"400px";
+  height:"120px";
+  }
 
 header {
+ 
     position: relative;
     background-size: cover;
     background-position: center;

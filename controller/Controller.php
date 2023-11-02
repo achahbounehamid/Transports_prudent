@@ -3,13 +3,7 @@ abstract class Controller
 {
     private static $loader;
     private static $twig;
-   
-    public function __construct()
-    {
-        self::setLoader();
-        self::setTwig();
-    }
-   
+
     private static function setLoader()
     {
         self::$loader = new \Twig\Loader\FilesystemLoader('./view');

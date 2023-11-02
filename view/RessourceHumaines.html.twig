@@ -1,0 +1,48 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Graphique RH{% endblock %}
+
+{% block content %}
+<body>
+    <h2>Ressources Humaines</h2>
+
+    <!-- Graphique Répartition Homme-Femme par Métier -->
+    <div id="genderDistributionChartContainer">
+        <canvas id="genderDistributionChart"></canvas>
+    </div>
+
+    <script>
+        // Dummy data (replace with real data from your database)
+        const genderData = {
+            labels: ["Métier 1", "Métier 2", "Métier 3"],
+            datasets: [
+                {
+                    label: "Hommes",
+                    data: [25, 30, 15],
+                    backgroundColor: "blue",
+                },
+                {
+                    label: "Femmes",
+                    data: [15, 20, 10],
+                    backgroundColor: "pink",
+                },
+            ],
+        };
+
+        const ctx = document.getElementById("genderDistributionChart").getContext("2d");
+        const genderDistributionChart = new Chart(ctx, {
+            type: "bar",
+            data: genderData,
+            options: {
+                scales: {
+                    x: {
+                        stacked: true,
+                    },
+                    y: {
+                        stacked: true,
+                    },
+                },
+            },
+        });
+    </script>
+{% endblock %}

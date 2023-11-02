@@ -2,9 +2,7 @@
     "name": "stagiaire/transports_prudent",
     "description": "site web de transports de produits pharmaceutique",
     "autoload": {
-        "psr-4": {
-            "Stagiaire\\TransportsPrudent\\": "src/"
-        }
+        "classmap": ["controller", "model", "view", "class"]
     },
     "authors": [
         {
