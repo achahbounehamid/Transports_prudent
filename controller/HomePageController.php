@@ -1,13 +1,12 @@
 
 <?php
-
-require_once 'controller.php';
+require_once 'Controller.php';
 
 class HomePageController extends Controller
 {
     public function home()
-     {
-      
-        echo self::render('HomePage.html.twig', []);
+    {
+        $this->render('HomePage.html.twig', []);
+    }
 }
-}
+

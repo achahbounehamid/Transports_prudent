@@ -1,13 +1,29 @@
 {% extends 'template.html.twig' %}
 
-{% block title %}Bienvenue sur Transports prudent{% endblock %}
+{% block title %}Bienvenue sur Transports prudent
+{% endblock %}
 
 
 {% block content %}
 
-	<section>
-		<h1>coucou</h1>
+	<section class="services">
+
+		<div class="commerce">
+
+<a href="{{ path('commerce') }}"><img src="{{ asset('/images/commerce.png') }}" alt="commerce">Commerce</a>
+		</div>
+
+		<div class="ressource-humaine">
+<a href="#"><img src="{{ asset('/images/RH.png') }}" alt="ressource-humaine">RH</a>
+		</div>
+
+		<div class="exploitation">
+<a href="#"><img src="{{ asset('/images/camion.png') }}" alt="exploitation">Exploitation</a>
+		</div>
 	</section>
+	<sectction class="actualites">
+
+	</sectction>
 
 
 {% endblock %}
