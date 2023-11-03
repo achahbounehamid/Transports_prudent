@@ -1,10 +1,11 @@
 <?php
 
 
+
 class RessourceHumaineController extends Controller
 {
 
-
+  
     public function resourceHumaine()
 {
     // Initialiser le modèle RessourceHumaineModel

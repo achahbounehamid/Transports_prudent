@@ -5,7 +5,7 @@ class RessourceHumaineModel extends Model
     public function getResourceHumaine()
     {
       // Préparez la requête pour le taux d'absentéisme
-$queryAbsenteeism = "SELECT titreDemploi AS Metier, AVG(tauxDAbsentéisme) AS TauxAbsentéismeMoyen FROM resource_humaine GROUP BY titreDemploi";
+$queryAbsenteeism = "SELECT titreDemploi AS Metier, AVG(tauxDAbsentéisme) AS TauxAbsenteismeMoyen FROM resource_humaine GROUP BY titreDemploi";
 $stmtAbsenteeism = $this->getDb()->prepare($queryAbsenteeism);
 
 // Exécutez la requête pour le taux d'absentéisme

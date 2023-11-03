@@ -9,11 +9,6 @@ h2 {
   margin-bottom: 30px;
 }
 
-#myChartContainer {
-  width: "400px";
-  height: "120px";
-}
-
 header {
   position: relative;
   background-size: cover;
@@ -65,13 +60,19 @@ header .image-arrier {
 .services {
   display: flex;
   justify-content: space-evenly;
+  padding-bottom: 100px;
 }
 .services .commerce img, .services .ressource-humaine img, .services .exploitation img {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   cursor: pointer;
-  background-color: gray;
+  background-color: rgb(93, 173, 167);
   border-radius: 50%;
+}
+.services .commerce a, .services .ressource-humaine a, .services .exploitation a {
+  text-decoration: none;
+  font-size: 25px;
+  color: blue;
 }
 
 footer .container .paragraphe {
