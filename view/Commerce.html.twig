@@ -3,34 +3,44 @@
 {% block title %}Graphique Commerce{% endblock %}
 
 {% block content %}
-   <div>
-  <canvas id="myChart"></canvas>
-</div>
+    <h2>Top 10 des clients par chiffre d'affaires</h2>
 
+     <div id="myChartContainer">
+        <canvas id="myChart" ></canvas>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Récupération des données depuis PHP et conversion en format JavaScript
+        const clientData = {{ topClientsData | json_encode | raw }};
 
-   <script>
-  const ctx = document.getElementById('myChart');
+        // Extraction des noms des clients et chiffre d'affaires
+        const clientNames = clientData.map(item => item.idClient);
+        const chiffreAffaires = clientData.map(item => item.chiffre_affaires);
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
-</script>
+        // Création du graphique avec Chart.js
+        const ctx = document.getElementById("myChart").getContext("2d");
+        const myChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: clientNames,
+                datasets: [
+                    {
+                        label: "Chiffre d'affaires",
+                        data: chiffreAffaires,
+                        backgroundColor: "rgba(75, 192, 192, 0.2)",
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        borderWidth: 1,
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
+    </script>
 
 {% endblock %}

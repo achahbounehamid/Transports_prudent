@@ -11,6 +11,9 @@ $router->setBasePath('/Transports_prudent');
 // Définition des routes
 $router->map('GET', '/', 'HomePageController#home','home');
 $router->map('GET', '/graphiqueCommerce', 'CommerceController#commerce', 'commerce'); // Nouvelle route pour le graphique
+$router->map('GET', '/graphiqueResourceHumaine', 'RessourceHumaineController#resourceHumaine', 'resourceHumaine');//  la route pour la page "Resource humaine"
+$router->map('GET', '/graphiqueExploitation', 'ExploitationController#exploitation', 'exploitation');//  la route pour la page "Exploitation"
+
 
 $match = $router->match();
 // var_dump($match);

@@ -3,19 +3,22 @@
 	<head>
 		<meta charset="UTF-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/> {% block stylesheet %}{% endblock %}
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+		{% block stylesheet %}{% endblock %}
 
 		<link rel="stylesheet" href={{ asset('css/style.css') }} />
 
 
+{% block javascript %}
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+{% endblock %}	
 
 		<title>
 			{% block title %}Transports prudent
 			{% endblock %}
 		</title>
 
-		{# <script type="module" src="asset/js/chart.js"></script> #}
 	</head>
 
 	<body>
@@ -24,5 +27,9 @@
 	   {% block content %}{% endblock %}
 
 		{% include 'FooterPage.html.twig' %}
+
+
+
+		<script src=""> </script>
 	</body>
 </html>
