@@ -4,45 +4,57 @@
 
 {% block content %}
 <body>
-    <h2>Ressources Humaines</h2>
+    <div class="page-rh">
+    <h1>Ressources Humaines</h1>
+    <section class="actualites-rh">
+        <article class="actualite-rh">
+            <img src="asset/images/camenbert.png" alt="">
+        </article>
 
-    <!-- Graphique Répartition Homme-Femme par Métier -->
-    <div id="genderDistributionChartContainer">
-        <canvas id="genderDistributionChart"></canvas>
-    </div>
+        <article class="actualite-rh">
+            <img src="asset/images/absenteisme.png" alt="">
+        </article>
+    </section>
 
-    <script>
-        // Dummy data (replace with real data from your database)
-        const genderData = {
-            labels: ["Métier 1", "Métier 2", "Métier 3"],
-            datasets: [
-                {
-                    label: "Hommes",
-                    data: [25, 30, 15],
-                    backgroundColor: "blue",
-                },
-                {
-                    label: "Femmes",
-                    data: [15, 20, 10],
-                    backgroundColor: "pink",
-                },
-            ],
-        };
+    <h1>Répartition</h1>
+    <section class="actualites-rh">
+        <article class="actualite-rh">
+            <img src="asset/images/hommefemme.png" alt="">
+        </article>
 
-        const ctx = document.getElementById("genderDistributionChart").getContext("2d");
-        const genderDistributionChart = new Chart(ctx, {
-            type: "bar",
-            data: genderData,
-            options: {
-                scales: {
-                    x: {
-                        stacked: true,
-                    },
-                    y: {
-                        stacked: true,
-                    },
-                },
+        <article class="actualite-rh">
+            <img src="asset/images/personnages.png" alt="">
+        </article>
+    </section>
+    
+    <h1> Faites nous part de votre satisfaction</h1> 
+    <section class="actualites-rh">
+        <article class="actualite-rh">
+            <img src="asset/images/satisfaction.png" alt="">
+        </article>
+    </section>
+</div>
+</body>
+
+<script>
+    
+    const genderData = {
+        labels: ["Métier 1", "Métier 2", "Métier 3"],
+        datasets: [
+            {
+                label: "Répartition Homme-Femme", // Nouveau label pour l'ensemble des données
+                data: [25, 30, 15],
+                backgroundColor: ["blue", "pink", "pink"], // Utilisez "pink" pour les secteurs correspondant aux femmes
             },
-        });
-    </script>
+        ],
+    };
+
+    const ctx = document.getElementById("genderDistributionChart").getContext("2d");
+    const genderDistributionChart = new Chart(ctx, {
+        type: "polarArea", // Change le type de graphique en polarArea
+        data: genderData,
+    });
+</script>
+
+
 {% endblock %}

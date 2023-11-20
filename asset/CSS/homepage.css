@@ -1,0 +1,75 @@
+
+
+.actualites-homepage {
+    height: 250px;
+    margin-bottom: 400px;
+    background-color: #A8C9DF;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.actualite-homepage {
+    flex: 1 1 300px;
+    margin: 100px;
+    margin-top: 65px;
+}
+
+/* img meteo ect */
+.actualite-homepage img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+
+.page-homepage h1 {
+    margin: 0px;
+    background-color: #A8C9DF;
+    padding: 0px;
+    padding-top: 21px;
+    color: #333;
+    text-align: center;
+    margin-top: 90px;
+
+   
+}
+
+/* a propos */
+.apropos-homepage {
+    height: 250px;
+    margin-bottom: 400px;
+    background-color: #A8C9DF;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+
+/* texte de prudent */
+.apropo-homepage p {
+    background-color: #EEF2F2;
+    border-radius: 5px;
+    color: #666;
+    line-height: 1.6;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .actualites-homepage {
+        height: unset;
+        margin-bottom: unset;
+    }
+
+    .apropos-homepage {
+        height: unset;
+        margin-bottom: 100px;
+    }
+    .apropo-homepage p {
+        margin: 20px;
+    }
+}
+

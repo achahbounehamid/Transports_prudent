@@ -3,8 +3,29 @@
 {% block title %}Graphique Commerce{% endblock %}
 
 {% block content %}
-    <h2>Top 10 des clients par chiffre d'affaires</h2>
 
+<body>
+    <div class="page-commerce container">
+        <h1 class="col-lg-12">Commerce</h1>
+
+
+      
+        <section class="actualites-commerce row">  
+             <article class="actualite-commerce col-lg-6 col- col-md-6 col-sm-12 col-xs-12">  
+                <h1 >Evolution du chiffre d'affaires</h1>
+                <img src="asset/images/repartition.png" alt="">
+        </article>
+        
+            <article class="actualite-commerce col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <h1 >Chiffre d'affaires par année</h1>
+                <img src="asset/images/evolution.png" alt="">
+            </article>
+        </section>
+
+   
+    </div>
+</body>
+<!--  
      <div id="myChartContainer">
         <canvas id="myChart" ></canvas>
     </div>
@@ -42,5 +63,5 @@
             },
         });
     </script>
-
+-->
 {% endblock %}

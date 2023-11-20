@@ -10,13 +10,14 @@ class CommerceController extends Controller
         // Initialiser le modèle CommerceModel
         $commerceModel = new CommerceModel();
         // Appel à la méthode du modèle pour obtenir les données du chiffre d'affaires des 10 premiers clients
-        $topClientsData = $commerceModel->getTopClientcADepartement();
+        //$topClientsData = $commerceModel->getTopClientcADepartement();
 
         // Passer les données au template Twig
         $twig = $this->getTwig();
 
-        echo $twig->render('Commerce.html.twig', [
+        echo $twig->render('Commerce.html.twig');
+        /*, [
             'topClientsData' => $topClientsData,
-        ]);
+        ]);*/
     }
 } 
