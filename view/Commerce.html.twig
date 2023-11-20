@@ -1,9 +1,67 @@
-<header>
-<h1>Bienvenue sur L'Intranet</h1>
-<div class="logo">
+{% extends 'template.html.twig' %}
 
-</div>
-<div class="image">
-</div>
+{% block title %}Graphique Commerce{% endblock %}
 
-</header>
+{% block content %}
+
+<body>
+    <div class="page-commerce container">
+        <h1 class="col-lg-12">Commerce</h1>
+
+
+      
+        <section class="actualites-commerce row">  
+             <article class="actualite-commerce col-lg-6 col- col-md-6 col-sm-12 col-xs-12">  
+                <h1 >Evolution du chiffre d'affaires</h1>
+                <img src="asset/images/repartition.png" alt="">
+        </article>
+        
+            <article class="actualite-commerce col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <h1 >Chiffre d'affaires par année</h1>
+                <img src="asset/images/evolution.png" alt="">
+            </article>
+        </section>
+
+   
+    </div>
+</body>
+<!--  
+     <div id="myChartContainer">
+        <canvas id="myChart" ></canvas>
+    </div>
+
+    <script>
+        // Récupération des données depuis PHP et conversion en format JavaScript
+        const clientData = {{ topClientsData | json_encode | raw }};
+
+        // Extraction des noms des clients et chiffre d'affaires
+        const clientNames = clientData.map(item => item.idClient);
+        const chiffreAffaires = clientData.map(item => item.chiffre_affaires);
+
+        // Création du graphique avec Chart.js
+        const ctx = document.getElementById("myChart").getContext("2d");
+        const myChart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: clientNames,
+                datasets: [
+                    {
+                        label: "Chiffre d'affaires",
+                        data: chiffreAffaires,
+                        backgroundColor: "rgba(75, 192, 192, 0.2)",
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        borderWidth: 1,
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
+    </script>
+-->
+{% endblock %}

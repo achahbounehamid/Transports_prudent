@@ -1,15 +1,36 @@
 <header>
-	<div class="container">
-		<div class="1">
+	<div class="containerHeader">
+		<div class="titre">
 			<h1>Bienvenue sur l'Intranet</h1>
 		</div>
-		<div class="image-arrier">
-        <img src="{{ asset('/images/logo-transport-prudent.png') }}" alt="">
+		<div class="logo">
+        <a href="{{ path('home') }}"><img src="{{ asset('/images/logo.png') }}" alt="arbre"></a>
         </div>
 
-		<div class="logo">
-			<img src="{{ asset('/images/logo-transport-prudent.png') }}" alt="">
-		</div>
+	
 	</div>
 
+	
 </header>
+<nav class="navbar">
+	<ul>
+		<li class="nav-item">
+			<a href="{{ path('commerce') }}">
+				<img src="{{ asset('/images/commerce.png') }}" alt="commerce">
+				<span>Commerce</span>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a href="{{ path('ressourceHumaines')}}">
+				<img src="{{ asset('/images/RH.png') }}" alt="ressource-humaines">
+				<span>RH</span>
+			</a>
+		</li>
+		<li class="nav-item">
+			<a href="{{ path('exploitation') }}">
+				<img src="{{ asset('/images/camion.png') }}" alt="exploitation">
+				<span>Exploitation</span>
+			</a>
+		</li>
+	</ul>
+</nav>
