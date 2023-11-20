@@ -3,57 +3,97 @@
 {% block title %}Graphique RH{% endblock %}
 
 {% block content %}
+
 <body>
     <div class="page-rh">
-    <h1>Ressources Humaines</h1>
-    <section class="actualites-rh">
-        <article class="actualite-rh">
-            <img src="asset/images/camenbert.png" alt="">
-        </article>
+        <h1>Ressources Humaines</h1>
+        <section class="actualites-rh">
+            <article class="actualite-rh">
+                <img src="asset/images/camenbert.png" alt="">
+            </article>
 
-        <article class="actualite-rh">
-            <img src="asset/images/absenteisme.png" alt="">
-        </article>
-    </section>
+            <article class="actualite-rh">  
+                <div id="absenteeismChartContainer">
+        
+  
+            </div>
+            </article>
+        </section>
 
-    <h1>Répartition</h1>
-    <section class="actualites-rh">
-        <article class="actualite-rh">
-            <img src="asset/images/hommefemme.png" alt="">
-        </article>
+        <h1>Répartition</h1>
+        <section class="actualites-rh">
+            <article class="actualite-rh">  
+                  <div id="genderDistributionChartContainer">
+       
+            </div>
+            </article>
 
-        <article class="actualite-rh">
-            <img src="asset/images/personnages.png" alt="">
-        </article>
-    </section>
-    
-    <h1> Faites nous part de votre satisfaction</h1> 
-    <section class="actualites-rh">
-        <article class="actualite-rh">
-            <img src="asset/images/satisfaction.png" alt="">
-        </article>
-    </section>
-</div>
+            <article class="actualite-rh"> 
+                <div id="satisfactionChartContainer">
+       
+            </div>
+            </article>
+        </section>
+
+        <h1> Faites nous part de votre satisfaction</h1>
+        <section class="actualites-rh">
+            <article class="actualite-rh">
+                <div class="satisfaction-buttons">
+
+                    <img src="{{ asset('./images/happy.png') }}" alt="Content" onclick="recordSatisfaction('Content')">
+                    <img src="{{ asset('./images/neutral.png') }}" alt="Un peu content"
+                        onclick="recordSatisfaction('Un peu content')">
+                    <img src="{{ asset('./images/sad.png') }}" alt="Moins content"
+                        onclick="recordSatisfaction('Moins content')">
+                    <img src="{{ asset('./images/angry.png') }}" alt="Fâché" onclick="recordSatisfaction('Fâché')">
+                </div>
+                <div id="selected-satisfaction"></div>
+
+            </article>
+        </section>
+    </div>
 </body>
 
 <script>
-    
-    const genderData = {
-        labels: ["Métier 1", "Métier 2", "Métier 3"],
-        datasets: [
-            {
-                label: "Répartition Homme-Femme", // Nouveau label pour l'ensemble des données
-                data: [25, 30, 15],
-                backgroundColor: ["blue", "pink", "pink"], // Utilisez "pink" pour les secteurs correspondant aux femmes
-            },
-        ],
-    };
+    document.addEventListener('DOMContentLoaded', function () {
+        let data = {{ dataRessourceHumaine| json_encode | raw
+    }};
 
-    const ctx = document.getElementById("genderDistributionChart").getContext("2d");
-    const genderDistributionChart = new Chart(ctx, {
-        type: "polarArea", // Change le type de graphique en polarArea
-        data: genderData,
-    });
+    // Vérifiez si data est un tableau
+    if (Array.isArray(data)) {
+        // Créez un tableau de données dans le format approprié pour Syncfusion
+        let dataSource = [];
+        data.forEach(item => {
+            dataSource.push({
+                type: item.type,
+                Metier: item.Metier,
+            });
+        });
+        console.log(data);
+        let genderDistributionChart = new ej.charts.Chart({
+            series: [
+                {
+                    type: 'Doughnut',
+                    dataSource: dataSource,
+                    xName: 'Metier',
+                    yName: 'Hommes',
+                    name: 'Hommes'
+                },
+                {
+                    type: 'Doughnut',
+                    dataSource: dataSource,
+                    xName: 'Metier',
+                    yName: 'Femmes',
+                    name: 'Femmes'
+                }
+            ],
+            title: 'Répartition Homme-Femme par Métier'
+        });
+    }
+});
+
+
+
 </script>
 
 

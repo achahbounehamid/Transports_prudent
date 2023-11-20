@@ -4,7 +4,7 @@ abstract class Model {
 
     private static function setDb(){
         try {
-            self::$db = new PDO('mysql:host=localhost;dbname=transpotrs_prudent;charset=utf8', 'root');
+            self::$db = new PDO('mysql:host=localhost;dbname=transports_prudent;charset=utf8', 'root');
         } catch(PDOException $e){
             echo "Erreur :" . $e->getMessage();
         }

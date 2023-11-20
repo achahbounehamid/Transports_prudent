@@ -12,56 +12,122 @@
       
         <section class="actualites-commerce row">  
              <article class="actualite-commerce col-lg-6 col- col-md-6 col-sm-12 col-xs-12">  
-                <h1 >Evolution du chiffre d'affaires</h1>
-                <img src="asset/images/repartition.png" alt="">
+                <h1 >Chiffre d'affaire par département</h1> 
+                 <div id="chartContainer">
+                 </div>
         </article>
         
             <article class="actualite-commerce col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <h1 >Chiffre d'affaires par année</h1>
-                <img src="asset/images/evolution.png" alt="">
+                <div id="CaParMois">
+                </div>
             </article>
         </section>
 
    
     </div>
 </body>
-<!--  
-     <div id="myChartContainer">
-        <canvas id="myChart" ></canvas>
-    </div>
+ 
+ 
+     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        // Graphique en secteurs (Pie)
+        let dataPie = {{ topClientsData | json_encode | raw }};
+        //console.log('Data from controller:', topClientsData);
 
-    <script>
-        // Récupération des données depuis PHP et conversion en format JavaScript
-        const clientData = {{ topClientsData | json_encode | raw }};
-
-        // Extraction des noms des clients et chiffre d'affaires
-        const clientNames = clientData.map(item => item.idClient);
-        const chiffreAffaires = clientData.map(item => item.chiffre_affaires);
-
-        // Création du graphique avec Chart.js
-        const ctx = document.getElementById("myChart").getContext("2d");
-        const myChart = new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: clientNames,
-                datasets: [
-                    {
-                        label: "Chiffre d'affaires",
-                        data: chiffreAffaires,
-                        backgroundColor: "rgba(75, 192, 192, 0.2)",
-                        borderColor: "rgba(75, 192, 192, 1)",
-                        borderWidth: 1,
-                    },
-                ],
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                    },
-                },
-            },
+        let chartDataPie = dataPie.map(function (item) {
+            return {
+                x: item.Nom_DEPT,
+                y: item.CodeDepartement
+            };
         });
+
+        let pieChart = new ej.charts.AccumulationChart({
+            series: [
+                {
+                    type: 'Pie',
+                    dataSource: chartDataPie,
+                    xName: 'x',
+                    yName: 'y',
+                    //explode: true,
+                    //explodeOffset: '10%',
+                    dataLabel: {
+                        visible: true,
+                        position: 'Outside',
+                        name: 'text'
+                    }
+                }
+            ],
+            tooltip: {
+            enable: true,
+             format: '${point.x}: ${point.y}'
+        }
+        });
+
+        pieChart.appendTo('#chartContainer');
+
+        // Graphique en spline
+        let dataSpline = {{ chiffreAffairesParMoisData | json_encode | raw }};
+
+        let chartDataSpline2022 = [];
+        let chartDataSpline2023 = [];
+
+        // Séparer les données pour les années 2022 et 2023
+        dataSpline.forEach(function (item) {
+            if (item.annee === 2022) {
+                chartDataSpline2022.push({
+                    x: item.mois,
+                    y: item.chiffre_affaires,
+                });
+            } else if (item.annee === 2023) {
+                chartDataSpline2023.push({
+                    x: item.mois,
+                    y: item.chiffre_affaires,
+                });
+            }
+        });
+
+        let splineChart = new ej.charts.Chart({
+            primaryXAxis: {
+                title: 'Mois',
+                valueType: 'Category'
+                
+            },
+            primaryYAxis: {
+                title: 'Chiffre d\'affaires',
+                labelFormat: '${value}M'
+            },
+            series: [
+                {
+                    type: 'Line',
+                    dataSource: chartDataSpline2022,
+                    xName: 'x',
+                    yName: 'y',
+                    marker: {
+                        visible: true,
+                        width: 10,
+                        height: 10
+                    },
+                    width: 4,
+                    fill: 'red'
+                },
+                {
+                    type: 'Line',
+                    dataSource: chartDataSpline2023,
+                    xName: 'x',
+                    yName: 'y',
+                    marker: {
+                        visible: true,
+                        width: 10,
+                        height: 10
+                    },
+                    width: 4,
+                    fill: 'green'
+                }
+            ]
+        });
+
+        splineChart.appendTo('#CaParMois');
+    });
     </script>
--->
 {% endblock %}

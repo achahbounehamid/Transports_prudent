@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-		{% block stylesheet %}{% endblock %}
-<!-- 
-		<link rel="stylesheet" href={{ asset('css/style.css') }} /> -->
+		{% block stylesheet %}
 		
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+		<link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/material.css" />
 		<link rel="stylesheet" href={{ asset('css/headerpage.css') }} />
 		<link rel="stylesheet" href={{ asset('css/footerpage.css') }} />
 		<link rel="stylesheet" href={{ asset('css/ressourcehumaines.css') }} />
 		<link rel="stylesheet" href={{ asset('css/commerce.css') }} />
 		<link rel="stylesheet" href={{ asset('css/homepage.css') }} />
+		{% endblock %}
 
+		{% block syncfusionjs %}
+		<script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js"></script>
+		<script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js.map"></script>
 
-{% block javascript %}
-		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		{% endblock %}	
 
-{% endblock %}	
 
 		<title>
 			{% block title %}Transports prudent
@@ -35,7 +37,12 @@
 		{% include 'FooterPage.html.twig' %}
 
 
-
-		<script src=""> </script>
+		{% block javascript %}
+		<script src=" {{ asset('./js/meteo.js') }}"></script>
+		<script src="{{ asset('./js/nouvelles.js') }}"></script> 
+		<script  src=" {{ asset('./js/satisfaction.js') }}"></script>
+		<script type="module" src=" {{ asset('./js/syncfusion.js') }}"></script>
+		{% endblock  %}
+		
 	</body>
 </html>
