@@ -24,20 +24,27 @@ class RessourceHumaineModel extends Model
         // Récupérez les résultats sous forme de tableau associatif
         $resultSatisfaction = $stmtSatisfaction->fetchAll(PDO::FETCH_ASSOC);
 
-        // Préparez la requête pour la répartition homme/femme
-        $queryGenderDistribution = "SELECT titreDemploi AS Metier, 
-           SUM(CASE WHEN sexe = 'Homme' THEN 1 ELSE 0 END) AS Hommes,
-           SUM(CASE WHEN sexe = 'Femme' THEN 1 ELSE 0 END) AS Femmes
-        FROM resource_humaine GROUP BY titreDemploi";
-        $stmtGenderDistribution = $this->getDb()->prepare($queryGenderDistribution);
+        // Préparez la requête pour  afficher le nom et le prénom des employés regroupés par métier,
+        $queryGenderDistribution = "SELECT titreDemploi, GROUP_CONCAT(Nom, ' ', Prénom) AS NomCompletParMétier FROM resource_humaine GROUP BY titreDemploi";
+        $nomPrenomParMetier = $this->getDb()->prepare($queryGenderDistribution);
 
         // Exécutez la requête pour la répartition homme/femme
-        $stmtGenderDistribution->execute();
+        $nomPrenomParMetier->execute();
 
         // Récupérez les résultats sous forme de tableau associatif
-        $resultGenderDistribution = $stmtGenderDistribution->fetchAll(PDO::FETCH_ASSOC);
+        $resultNomPrenomParMetier = $nomPrenomParMetier->fetchAll(PDO::FETCH_ASSOC);
+        // Transformez les données pour qu'elles soient compatibles avec le graphique
+        $formattedResult = [];
+        foreach ($resultNomPrenomParMetier as $row) {
+            $formattedResult[] = [
+                'titreDemploi' => $row['titreDemploi'],
+                'NomCompletMétier' => $row['NomCompletParMétier']
+            ];
+        }
 
-        $queryFichierEmploiyes = "SELECT Nom, Prénom, Sexe, Departement, TitreDemploi, DateDEmbauche FROM resource_humaine";
+        $queryFichierEmploiyes = "SELECT departement, titreDemploi
+        FROM resource_humaine
+        WHERE 1";
         $stmtFichierEmploiyes = $this->getDb()->prepare($queryFichierEmploiyes);
         $stmtFichierEmploiyes->execute();
 
@@ -46,8 +53,10 @@ class RessourceHumaineModel extends Model
         return [
             'resultAbsenteeism' => $resultAbsenteeism,
             'resultSatisfaction' => $resultSatisfaction,
-            'resultrepartitionHommesFemmes' => $resultGenderDistribution,
-            'resultFichierEmploiyes'=> $resultFichierEmploiyes,
+            'resultNomPrenomParMetier' => $formattedResult,
+            'resultFichierEmploiyes' => $resultFichierEmploiyes,
         ];
-    }
+    }  
+  
+
 }

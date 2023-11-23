@@ -6,6 +6,8 @@ let chartDataPie = dataPie.map(function (item) {
 });
 
 let pieChart = new ej.charts.AccumulationChart({
+    width: '400px', 
+    height: '300px', 
     series: [
         {
             type: 'Pie',
@@ -25,9 +27,7 @@ let pieChart = new ej.charts.AccumulationChart({
     enable: true,
      format: '${point.x}: ${point.y}'
 }
-});
-
-pieChart.appendTo('#chartContainer');
+},'#chartContainer');
 
 // deuxieme graphique
 
@@ -52,6 +52,8 @@ dataSpline.forEach(function (item) {
 // deuxieme graphique
 
 let splineChart = new ej.charts.Chart({
+    width: '500px', 
+    height: '400px', 
     primaryXAxis: {
         title: 'Mois',
         valueType: 'Category'
@@ -59,8 +61,9 @@ let splineChart = new ej.charts.Chart({
     },
     primaryYAxis: {
         title: 'Chiffre d\'affaires',
-        labelFormat: '${value}M'
+        labelFormat: '£{value}M'
     },
+    
     series: [
         {
             type: 'Line',
@@ -89,6 +92,6 @@ let splineChart = new ej.charts.Chart({
             fill: 'green'
         }
     ]
-});
+},'#CaParMois');
 
-splineChart.appendTo('#CaParMois');
+

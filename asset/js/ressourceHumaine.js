@@ -1,4 +1,3 @@
-
 //graphique pour afficher le taux d'absenteisme par Metier
     let genderDistributionChart = new ej.charts.Chart({
         primaryXAxis: {
@@ -24,13 +23,14 @@
                 dataSource: data,
                 xName: 'Metier',
                 yName: 'Metier',
-                name: 'Femmes'
+                name: 'Femmes',
+                
             }
         ],
-        title: 'Répartition Homme-Femme par Métier'
+        title: 'le taux d\absenteisme '
     }, '#genderDistributionChartContainer');
 
-//graphique pour afficher Satisfaction par mities
+//graphique pour afficher Satisfaction par métier
 
 // Transformez les données en un format compatible avec le graphique d'histogramme
 let satisfactionChart= dataSatisfaction.map(item => {
@@ -56,47 +56,83 @@ let chart = new ej.charts.Chart({
     ],
 },'#satisfactionChartContainer');
 
-//graphique 
+//gtraphique qui affiche afficher le nom et le prénom des employés regroupés par métier
 
-
-// let piechart = new ej.charts.AccumulationChart({
-//     series: [{
-//         dataSource: piechart,
-       
-//         dataLabel: {
-//             visible: true,
-//             position: 'Outside',
-//             name: 'x'
-//         },
-//         radius: 'r',
-//         xName: 'Metier', // Assurez-vous que cela correspond à votre structure de données
-//         yName: 'Hommes', // Assurez-vous que cela correspond à votre structure de données
-//         innerRadius: '20%'
-//     }],
-//     enableSmartLabels: true,
-//     legendSettings: {
-//         visible: true,
-//     },
-//     enableAnimation: true,
-//     title: 'Répartition Hommes/Femmes par Métier'
-    
-// },'#absenteeismChartContainer');
-
-//graphique Pyramide
-// Données de la série pour le graphique Pyramide
-let pyramidChartData = dataFichierEmploiyes.map(item => {
-    return { x: item.x, y: item.y, text: item.text }; // Assurez-vous que cela correspond à votre structure de données
+let resultNomPrenomParMetier = dataSatisfaction.map(item => {
+    return { x: item.titreDemploi, y: item.NomCompletMétier };
 });
 
-// Configuration du graphique Pyramide
-let pyramidChart = new ej.charts.AccumulationChart({
-    width: '600px',
+let colonnesCylindrique = new ej.charts.Chart({
+    primaryXAxis: {
+        valueType: 'Category',
+        title: 'Métier'
+    },
+    primaryYAxis: {
+        minimum: 0, maximum: 80,
+        interval: 10, title: 'Nom d\emploiyes'
+    },
     series: [{
-        type: 'Pyramid',
-        dataSource: pyramidChartData,
-        xName: 'Nom',
-         yName: 'TitreDemploi',
-        dataLabel: { name: 'text', visible: true, position: 'Inside' },
+        dataSource: resultNomPrenomParMetier,
+        xName: 'x',
+        yName: 'y',
+        tooltipMappingName: 'y',
+        type: 'Column',
+        columnFacet: 'Cylinder'
     }],
-    title: '',
+    title: 'Nom et prénom par métier'
+}, '#absenteeismChartContainer');
+
+// console.log(resultNomPrenomParMetier);
+
+
+
+
+//  graphique fichier Emploiyes
+
+
+
+// Remplir les données pour les séries et les catégories
+let dataResultFichierEmploiyes=resultFichierEmploiyes.forEach(function (item) {
+    categories.push(item.departement);
+    seriesData.push({
+        name: item.titreDemploi,
+        value: 1, // Vous pouvez ajuster cela en fonction de vos données
+    });
+});
+
+// Configurer le graphique Syncfusion
+let resultFichierEmploiyes = new ej.charts.Chart({
+    // Configurer les propriétés du graphique
+    // ...
+    series: [
+        {
+            type: 'StackingColumn',
+            dataSource: resultFichierEmploiyes,
+            xName: 'name',
+            yName: 'value'
+        }
+    ],
+    primaryXAxis: {
+        valueType: 'Category',
+        labels: categories
+    },
+    // ...
 }, '#FichierEmploiyes');
+console.log(resultFichierEmploiyes);
+
+
+// let resultFichierEmploiyes = new ej.charts.AccumulationChart({
+//     width: '500px',
+//     height: '300px',
+//     series: [
+//         {
+//             dataSource: resultFichierEmploiyes,
+//             dataLabel: { visible: true, name: 'text', position: 'Outside'  },
+//             startAngle: 270,
+//             endAngle: 90,
+//             xName: 'x',
+//             yName: 'y'
+//         }
+//     ],
+   
+// },);

@@ -10,6 +10,8 @@ class CommerceController extends Controller
         // Appel à la méthode du modèle pour obtenir les données du chiffre d'affaires des 10 premiers clients
         $topClientsData = $commerceModel->getTopClientcADepartement();
         $cvParMoisDatas = $commerceModel->getChiffreAffairesParMois();
+
+        
     
         // Passer les données au template Twig
         $twig = $this->getTwig();

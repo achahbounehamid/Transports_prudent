@@ -62,9 +62,10 @@
 // graphique RH
         let data = {{ dataRessourceHumaine.resultAbsenteeism | json_encode | raw }};
         let dataSatisfaction  = {{ dataRessourceHumaine.resultSatisfaction | json_encode | raw }};
-        let dataRepartitionHommesFemmes  = {{ dataRessourceHumaine.resultrepartitionHommesFemmes | json_encode | raw }};
-        let dataFichierEmploiyes  = {{ dataRessourceHumaine.resultFichierEmploiyes | json_encode | raw }};
+        let dataresultNomPrenomParMetier  = {{ dataRessourceHumaine.resultNomPrenomParMetier | json_encode | raw }};
+        let dataFichierEmploiyes = {{ dataRessourceHumaine.resultFichierEmploiyes | json_encode | raw }};
 
+        
 
 </script>
  <script src="{{ asset('./js/ressourceHumaine.js') }}" ></script>
