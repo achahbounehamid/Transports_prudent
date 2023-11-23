@@ -10,10 +10,6 @@
         <section class="actualites-rh">
             <article class="actualite-rh">
                 {# <img src="asset/images/camenbert.png" alt=""> #}
-                <div id="FichierEmploiyes">
-        
-  
-                    </div>
             </article>
 
             <article class="actualite-rh">  
@@ -54,16 +50,14 @@
                 <div id="selected-satisfaction"></div>
 
             </article>
-        </section> #}
-    </div>
+        </section>
+    </div> #}
 </body>
 
 <script>
-// graphique RH
+// graphique taux d'absence par meties
         let data = {{ dataRessourceHumaine.resultAbsenteeism | json_encode | raw }};
         let dataSatisfaction  = {{ dataRessourceHumaine.resultSatisfaction | json_encode | raw }};
-        let dataRepartitionHommesFemmes  = {{ dataRessourceHumaine.resultrepartitionHommesFemmes | json_encode | raw }};
-        let dataFichierEmploiyes  = {{ dataRessourceHumaine.resultFichierEmploiyes | json_encode | raw }};
 
 
 </script>
