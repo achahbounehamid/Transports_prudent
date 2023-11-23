@@ -12,25 +12,33 @@
 
 	
 </header>
-<nav class="navbar">
-	<ul>
-		<li class="nav-item">
-			<a href="{{ path('commerce') }}">
-				<img src="{{ asset('/images/commerce.png') }}" alt="commerce">
-				<span>Commerce</span>
-			</a>
-		</li>
-		<li class="nav-item">
-			<a href="{{ path('ressourceHumaines')}}">
-				<img src="{{ asset('/images/RH.png') }}" alt="ressource-humaines">
-				<span>RH</span>
-			</a>
-		</li>
-		<li class="nav-item">
-			<a href="{{ path('exploitation') }}">
-				<img src="{{ asset('/images/camion.png') }}" alt="exploitation">
-				<span>Exploitation</span>
-			</a>
-		</li>
-	</ul>
+
+<!-- Navbar -->
+<nav class="navbar d-flex justify-content-center align-items-center">
+    <ul class="nav-list d-flex">
+        <li class="nav-item">
+            <a href="{{ path('commerce') }}" class="nav-link">
+                <div class="nav-img">
+                    <img src="{{ asset('/images/commerce.png') }}" alt="commerce" class="img-fluid">
+                </div>
+                <span class="nav-text">Commerce</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('ressourceHumaines')}}" class="nav-link">
+                <div class="nav-img">
+                    <img src="{{ asset('/images/RH.png') }}" alt="ressource-humaines" class="img-fluid">
+                </div>
+                <span class="nav-text">Ressources Humaines</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ path('exploitation') }}" class="nav-link">
+                <div class="nav-img">
+                    <img src="{{ asset('/images/camion.png') }}" alt="exploitation" class="img-fluid">
+                </div>
+                <span class="nav-text">Exploitation</span>
+            </a>
+        </li>
+    </ul>
 </nav>

@@ -8,20 +8,32 @@
     text-align: center;
     margin-top: 90px;
 }
+.chart-placeholder {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #e3e1e2bf; /* Couleur moins foncée que lightgray */
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px; /* Bords arrondis */
+}
 
-.actualites-commerce2 {
+
+.actualites-commerce {
     background-color: #A8C9DF;
     display: flex;
     flex-wrap: wrap;
+    padding: 20px;
     justify-content: center;
 }
 
-.actualite-commerce {
-    margin: 10px;
-    background-color: #EEF2F2;
-    border-radius: 5px;
-    text-align: center;
-    min-height: 300px;
+
+/* le groupe d'articles */
+.actualites-commerce {
+    height: 30vh;
+    margin-bottom: 50vh;
+    background-color: #A8C9DF;
+    justify-content: center;
 }
 
 .actualite-commerce img {

@@ -1,73 +1,99 @@
-/* header  */
-body {
+/* Reset some default styles */
+body, ul, li, h1, h2, h3, p {
     margin: 0;
     padding: 0;
 }
 
-.logo {
-    position: absolute;
-    top: 10vh;
-    right: 20vh;
-    z-index: 1;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
+/* Header */
+body {
+    font-family: 'Arial', sans-serif;
 }
 
-
-
 .containerHeader {
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 00)68%, rgba(255, 255, 255, 1) 96%), url('/Transports_prudent/asset//images/prudent.jpg');
-
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 68%, rgba(255, 255, 255, 1) 96%), url('/Transports_prudent/asset//images/prudent.jpg');
     background-size: cover;
     height: 60vh;
     width: 100%;
     display: flex;
+    align-items: center;
 }
 
-.navbar ul {
+.titre {
+    position: absolute;
+    top: 20px; 
+    padding: 25px;
+    font-size: 18px;
+    color: black;
+    text-align: center;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Navbar */
+.navbar {
+    padding: 80px 0; /* Doublez la valeur pour agrandir la barre de navigation */
+}
+
+.nav-list {
     list-style: none;
     display: flex;
-    justify-content: center;
+    margin: 0;
     padding: 0;
-}
-
-.navbar li {
-    margin: 45px;
-}
-
-.nav-item a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #000;
-}
-
-.nav-item img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px solid #000;
-    margin-bottom: 5px;
-    background-color: #EEF2F2;
-
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: center; /* Centre les éléments verticalement */
 }
 
 .nav-item {
-    margin: 0 30px;
+    margin: 0 40px; /* Doublez la valeur pour augmenter l'espace entre les éléments */
+    text-align: center; /* Centre le texte sous les cercles */
+}
 
+.nav-link {
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-img {
+    width: 160px; /* Doublez la valeur pour agrandir les cercles */
+    height: 160px; /* Doublez la valeur pour agrandir les cercles */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid #A8C9DF;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, z-index 0.3s ease-in-out; /* Ajoutez une transition pour le z-index */
+}
+
+.nav-img img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.nav-text {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Ajoutez le style de transition lorsque survolé */
+.nav-img:hover {
+    z-index: 1;
+    transform: scale(1.1); /* Ajoutez un effet de zoom au survol */
 }
 
 
-.titre {
-    padding-top: 25px;
-    font-size: 18px;
-    color: black;
-    text-align: left;
-    margin-left: 5vh;
-
-}
-
+/* Responsive */
 @media (max-width: 768px) {
     .containerHeader {
         height: 40vh;
@@ -78,17 +104,18 @@ body {
     }
 
     .logo {
-       top: 0vh; 
-       right: unset;
-       border-radius: unset;
-       width: 100%;
-       text-align: center;
+        top: 10px;
+        right: 10px;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.7);
     }
 
-    .actualite-commerce {
-        flex: 1 1 100%;
+    .navbar {
+        flex-direction: column;
+        align-items: center;
     }
-    .navbar ul {
-         display: flow-root;
+
+    .nav-item {
+        margin: 10px 0;
     }
 }

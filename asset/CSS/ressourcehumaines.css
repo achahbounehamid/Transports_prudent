@@ -1,7 +1,12 @@
-
-.page-rh h1 {
-    margin: 0px;
+.page-rh-titre {
+ 
     background-color: #A8C9DF;
+    justify-content: center;
+   
+}
+
+.actualites-rh h1, .page-rh-titre {
+    margin: 0px;
     padding: 0px;
     padding-top: 21px;
     color: #333;
@@ -12,32 +17,31 @@
 }
 /* le groupe d'articles */
 .actualites-rh {
-    height: 250px;
-    margin-bottom: 350px;
+    height: 30vh;
+    margin-bottom: 50vh;
     background-color: #A8C9DF;
     display: flex;
     flex-wrap: wrap;
+    padding: 20px;
     justify-content: center;
 }
-/* 1 article rh */
-.actualite-rh {
-    flex: 1 1 300px;
-    margin: 200px;
-    margin-top: 65px;
-    background-color: #EEF2F2;
-    border-radius: 5px;
-    text-align: center;
-    max-width: 600px;
-    min-height: 300px;
 
+.chart-placeholder {
+    width: 100%;
+    background-color: #e3e1e2bf; /* Couleur moins foncée que lightgray */
+    height: 50vh;
+    margin-top: 10px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px; /* Bords arrondis */
 }
 
-/* img à l'intérieur des articles */
-.actualite-rh img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin: 20px auto 0;
-    display: block;
-   max-width: 400px;
+.satisfaction-rh {
+    height: 32vh;
+    margin-bottom: 15vh;
+    background-color: #A8C9DF;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    justify-content: center;
 }

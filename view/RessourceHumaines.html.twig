@@ -1,3 +1,4 @@
+
 {% extends 'template.html.twig' %}
 
 {% block title %}Graphique RH{% endblock %}
@@ -5,99 +6,57 @@
 {% block content %}
 
 <body>
-    <div class="page-rh">
-        <h1>Ressources Humaines</h1>
-        <section class="actualites-rh">
-            <article class="actualite-rh">
-                <img src="asset/images/camenbert.png" alt="">
+    <div class="page-rh container-fluid">
+    
+            <h1 class="row page-rh-titre">Ressources Humaines</h1>
+
+        <section class="actualites-rh row">
+            <article class=" col-lg-6 col-md-6 col-sm-12">
+                <h1>Graphique</h1>
+                <!-- Placeholder block for the pie chart -->
+                
+                <div class="chart-placeholder" ></div>
             </article>
 
-            <article class="actualite-rh">  
-                <div id="absenteeismChartContainer">
-        
-  
-            </div>
-            </article>
-        </section>
+            <article class="col-lg-6 col-md-6 col-sm-12">
+                <h1>Absentéïsme</h1>
 
-        <h1>Répartition</h1>
-        <section class="actualites-rh">
-            <article class="actualite-rh">  
-                  <div id="genderDistributionChartContainer">
-       
-            </div>
-            </article>
-
-            <article class="actualite-rh"> 
-                <div id="satisfactionChartContainer">
-       
-            </div>
+                 <div id="absenteeismChartContainer" class="chart-placeholder"></div>
+             
             </article>
         </section>
 
-        <h1> Faites nous part de votre satisfaction</h1>
-        <section class="actualites-rh">
-            <article class="actualite-rh">
+        <section class=" actualites-rh row">
+            <article class=" col-lg-6 col-md-6 col-sm-12">
+                <h1>Répartition</h1>
+               <div id="genderDistributionChartContainer" class="chart-placeholder" ></div>
+           
+            </article>
+
+            <article class="col-lg-6 col-md-6 col-sm-12">
+                <h1>Satisfaction</h1>
+               <div id="satisfactionChartContainer" class="chart-placeholder"></div>
+                
+            </article>
+        </section>
+
+        <section class="satisfaction-rh row">
+            <h1>Faites nous part de votre satisfaction</h1>
+            <article class="col-12 d-flex flex-column align-items-center">
                 <div class="satisfaction-buttons">
-
-                    <img src="{{ asset('./images/happy.png') }}" alt="Content" onclick="recordSatisfaction('Content')">
-                    <img src="{{ asset('./images/neutral.png') }}" alt="Un peu content"
-                        onclick="recordSatisfaction('Un peu content')">
-                    <img src="{{ asset('./images/sad.png') }}" alt="Moins content"
-                        onclick="recordSatisfaction('Moins content')">
-                    <img src="{{ asset('./images/angry.png') }}" alt="Fâché" onclick="recordSatisfaction('Fâché')">
+                    <img src="{{ asset('./images/happy.png') }}" alt="Content" onclick="recordSatisfaction('Content')" class="img-fluid">
+                    <img src="{{ asset('./images/neutral.png') }}" alt="Un peu content" onclick="recordSatisfaction('Un peu content')" class="img-fluid">
+                    <img src="{{ asset('./images/sad.png') }}" alt="Moins content" onclick="recordSatisfaction('Moins content')" class="img-fluid">
+                    <img src="{{ asset('./images/angry.png') }}" alt="Fâché" onclick="recordSatisfaction('Fâché')" class="img-fluid">
                 </div>
-                <div id="selected-satisfaction"></div>
-
+                <div class="col-12" id="selected-satisfaction" style="text-align:center"></div>
             </article>
         </section>
     </div>
 </body>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        let data = {{ dataRessourceHumaine| json_encode | raw
-    }};
-
-    // Vérifiez si data est un tableau
-    if (Array.isArray(data)) {
-        // Créez un tableau de données dans le format approprié pour Syncfusion
-        let dataSource = [];
-        data.forEach(item => {
-            dataSource.push({
-                type: item.type,
-                Metier: item.Metier,
-            });
-        });
-        console.log(data);
-        let genderDistributionChart = new ej.charts.Chart({
-            series: [
-                {
-                    type: 'Doughnut',
-                    dataSource: dataSource,
-                    xName: 'Metier',
-                    yName: 'Hommes',
-                    name: 'Hommes'
-                },
-                {
-                    type: 'Doughnut',
-                    dataSource: dataSource,
-                    xName: 'Metier',
-                    yName: 'Femmes',
-                    name: 'Femmes'
-                }
-            ],
-            title: 'Répartition Homme-Femme par Métier'
-        });
-    }
-});
-
-
-
+    let data = {{ dataRessourceHumaine| json_encode | raw }};
 </script>
-
-<script>
-    // ajouter les variables
- </script>
- <script src="{{ asset('./js/ressourceHumaine.js') }}" ></script>
+<script src="{{ asset('./js/ressourceHumaine.js') }}"></script>
 {% endblock %}
