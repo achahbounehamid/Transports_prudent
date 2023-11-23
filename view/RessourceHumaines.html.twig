@@ -9,14 +9,14 @@
         <h1>Ressources Humaines</h1>
         <section class="actualites-rh">
             <article class="actualite-rh">
-                {# <img src="asset/images/camenbert.png" alt=""> #}
+                <img src="asset/images/camenbert.png" alt="">
             </article>
 
             <article class="actualite-rh">  
                 <div id="absenteeismChartContainer">
         
   
-                    </div>
+            </div>
             </article>
         </section>
 
@@ -35,7 +35,7 @@
             </article>
         </section>
 
-        {# <h1> Faites nous part de votre satisfaction</h1>
+        <h1> Faites nous part de votre satisfaction</h1>
         <section class="actualites-rh">
             <article class="actualite-rh">
                 <div class="satisfaction-buttons">
@@ -51,15 +51,53 @@
 
             </article>
         </section>
-    </div> #}
+    </div>
 </body>
 
 <script>
-// graphique taux d'absence par meties
-        let data = {{ dataRessourceHumaine.resultAbsenteeism | json_encode | raw }};
-        let dataSatisfaction  = {{ dataRessourceHumaine.resultSatisfaction | json_encode | raw }};
+    document.addEventListener('DOMContentLoaded', function () {
+        let data = {{ dataRessourceHumaine| json_encode | raw
+    }};
+
+    // Vérifiez si data est un tableau
+    if (Array.isArray(data)) {
+        // Créez un tableau de données dans le format approprié pour Syncfusion
+        let dataSource = [];
+        data.forEach(item => {
+            dataSource.push({
+                type: item.type,
+                Metier: item.Metier,
+            });
+        });
+        console.log(data);
+        let genderDistributionChart = new ej.charts.Chart({
+            series: [
+                {
+                    type: 'Doughnut',
+                    dataSource: dataSource,
+                    xName: 'Metier',
+                    yName: 'Hommes',
+                    name: 'Hommes'
+                },
+                {
+                    type: 'Doughnut',
+                    dataSource: dataSource,
+                    xName: 'Metier',
+                    yName: 'Femmes',
+                    name: 'Femmes'
+                }
+            ],
+            title: 'Répartition Homme-Femme par Métier'
+        });
+    }
+});
+
 
 
 </script>
+
+<script>
+    // ajouter les variables
+ </script>
  <script src="{{ asset('./js/ressourceHumaine.js') }}" ></script>
 {% endblock %}
