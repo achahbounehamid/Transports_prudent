@@ -12,6 +12,7 @@ let pieChart = new ej.charts.AccumulationChart({
         {
             type: 'Pie',
             dataSource: chartDataPie,
+           
             xName: 'x',
             yName: 'y',
             //explode: true,
@@ -25,7 +26,7 @@ let pieChart = new ej.charts.AccumulationChart({
     ],
     tooltip: {
     enable: true,
-     format: '${point.x}: ${point.y}'
+    //  format: '${point.x}: ${point.y}'
 }
 },'#chartContainer');
 
@@ -61,7 +62,8 @@ let splineChart = new ej.charts.Chart({
     },
     primaryYAxis: {
         title: 'Chiffre d\'affaires',
-        labelFormat: '£{value}M'
+        labelFormat: '{value}M€',
+        
     },
     
     series: [
@@ -76,7 +78,8 @@ let splineChart = new ej.charts.Chart({
                 height: 10
             },
             width: 4,
-            fill: 'red'
+            fill: 'red',
+            name:'2023',
         },
         {
             type: 'Line',
@@ -89,7 +92,8 @@ let splineChart = new ej.charts.Chart({
                 height: 10
             },
             width: 4,
-            fill: 'green'
+            fill: 'green',
+            name:'2022',
         }
     ]
 },'#CaParMois');
