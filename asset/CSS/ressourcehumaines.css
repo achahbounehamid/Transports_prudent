@@ -1,17 +1,26 @@
-.page-rh-titre {
- 
-    background-color: #A8C9DF;
-    justify-content: center;
-   
+.page-rh{
+    
+    margin-top: 6vh;
 }
-
-.actualites-rh h1, .page-rh-titre {
+/*tous les h1 ds actualités rh+ h1 ki a sa propre class*/
+.actualites-rh h1 {
     margin: 0px;
     padding: 0px;
     padding-top: 21px;
     color: #333;
     text-align: center;
-    margin-top: 90px;
+ 
+
+   
+}
+
+.actualites-rh h3 {
+    margin-top: 20px;
+    padding: 0px;
+    padding-top: 21px;
+    color: #333;
+    text-align: center;
+ 
 
    
 }
@@ -25,17 +34,17 @@
     padding: 20px;
     justify-content: center;
 }
-
+/*carré gris en dessous des graphiques*/
 .chart-placeholder {
     width: 100%;
-    background-color: #e3e1e2bf; /* Couleur moins foncée que lightgray */
+    background-color: #e3e1e2bf;  
     height: 50vh;
     margin-top: 10px;
     background-size: cover;
     background-position: center;
-    border-radius: 10px; /* Bords arrondis */
+    border-radius: 10px; 
 }
-
+/*gugus*/
 .satisfaction-rh {
     height: 32vh;
     margin-bottom: 15vh;

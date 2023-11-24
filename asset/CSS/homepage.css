@@ -1,11 +1,14 @@
-
+.page-homepage {
+    margin-top: 6vh;
+}
 
 .actualites-homepage {
-    height: 250px;
-    margin-bottom: 400px;
+    height: 30vh;
+    margin-bottom: 50vh;
     background-color: #A8C9DF;
     display: flex;
     flex-wrap: wrap;
+    padding: 20px;
     justify-content: center;
 }
 
@@ -15,47 +18,38 @@
     margin-top: 65px;
 }
 
-/* img meteo ect */
-.actualite-homepage img {
+.apropos-titre {
+    margin: 4vh;
+}
+
+.actualite-homepage-img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 
-
-
 .page-homepage h1 {
-    margin: 0px;
-    background-color: #A8C9DF;
-    padding: 0px;
-    padding-top: 21px;
     color: #333;
     text-align: center;
-    margin-top: 90px;
-
-   
 }
 
-/* a propos */
 .apropos-homepage {
-    height: 250px;
-    margin-bottom: 400px;
+    height: 30vh;
+    margin-bottom: 55vh;
     background-color: #A8C9DF;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-
-
-/* texte de prudent */
 .apropo-homepage p {
     background-color: #EEF2F2;
     border-radius: 5px;
     color: #666;
     line-height: 1.6;
     text-align: center;
+    padding: 25px;
 }
 
 @media (max-width: 768px) {
@@ -68,8 +62,98 @@
         height: unset;
         margin-bottom: 100px;
     }
+
     .apropo-homepage p {
         margin: 20px;
     }
 }
+.info-meteo-img{
+    width:3vh;
+}
+.meteo-img{
+    width:15vh;
+}
+.search-img{
+    width: 4vh;
+}
+.actualites .card {
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    color: #fff;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+}
 
+.actualites .card .search-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.actualites .card .search-input {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding: 10px 25px;
+    margin: 5px;
+    border-radius: 30px;
+    flex: 1;
+    font-size: 18px;
+}
+.details p {
+    margin: 0;
+}
+
+.actualites .card .search-button {
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.actualites .card .weather .weather-icon {
+    width: 170px;
+    margin-top: 30px;
+}
+
+.actualites .card .weather h1 {
+    font-size: 80px;
+    font-weight: 500;
+}
+
+.actualites .card .weather h2 {
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+
+.actualites .card .weather .details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 25px;
+}
+
+.actualites .card .weather .details .col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.actualites .card .weather .details .col img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.actualites .card .weather .details .col .humidity,
+.actualites .card .weather .details .col .wind {
+    font-size: 28px;
+    margin-top: -6px;
+}

@@ -1,30 +1,34 @@
-/* Styles par défaut pour les grands écrans */
-.page-commerce h1 {
-    margin: 0;
-    background-color: #A8C9DF;
-    padding: 0;
+.page-commerce{
+    
+    margin-top: 6vh;
+}
+/*tous les h1 ds actualités rh+ h1 ki a sa propre class*/
+.actualites-commerce h1 {
+    margin: 0px;
+    padding: 0px;
     padding-top: 21px;
     color: #333;
     text-align: center;
-    margin-top: 90px;
 }
+.actualites-commerce h3 {
+    margin-top: 20px;
+    padding: 0px;
+    padding-top: 21px;
+    color: #333;
+    text-align: center;
+ 
+
+   
+}
+/*carré gris en dessous des graphiques*/
 .chart-placeholder {
     width: 100%;
     margin-top: 10px;
-    background-color: #e3e1e2bf; /* Couleur moins foncée que lightgray */
+    background-color: #e3e1e2bf; 
     height: 50vh;
     background-size: cover;
     background-position: center;
-    border-radius: 10px; /* Bords arrondis */
-}
-
-
-.actualites-commerce {
-    background-color: #A8C9DF;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-    justify-content: center;
+    border-radius: 10px; 
 }
 
 
@@ -33,14 +37,9 @@
     height: 30vh;
     margin-bottom: 50vh;
     background-color: #A8C9DF;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
     justify-content: center;
-}
-
-.actualite-commerce img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin: 20px auto 0;
-    display: block;
 }
 
