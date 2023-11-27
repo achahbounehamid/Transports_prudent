@@ -1,5 +1,7 @@
 //graphique Taux d'absenteisme
 let tauxAbsence = new ej.charts.Chart({
+    width: '300px', 
+    height: '200px',
     primaryXAxis: {
         valueType: 'Category',
         interval: 1, // Afficher chaque mois
@@ -33,6 +35,8 @@ let tauxAbsence = new ej.charts.Chart({
 //graphique de la masse salariale
 
 let masseSalaire = new ej.charts.Chart({
+    width: '300px', 
+    height: '200px',
     primaryXAxis: {
         valueType: 'Category',
         interval: 1, // Afficher chaque mois
@@ -63,4 +67,3 @@ let masseSalaire = new ej.charts.Chart({
     }],
     title: 'Evolution de la masse salariale'
 }, '#absenteeismChartContainer');
-console.log(dataMasseSalaire);

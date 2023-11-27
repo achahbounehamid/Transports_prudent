@@ -24,6 +24,7 @@ let pieChart = new ej.charts.AccumulationChart({
             }
         }
     ],
+    title:'Chiffre d\affaire par département',
     tooltip: {
     enable: true,
     //  format: '${point.x}: ${point.y}'
@@ -95,7 +96,9 @@ let splineChart = new ej.charts.Chart({
             fill: 'green',
             name:'2022',
         }
-    ]
+    ],
+    title:'Chiffre d\affaire par département',
+
 },'#CaParMois');
 
 

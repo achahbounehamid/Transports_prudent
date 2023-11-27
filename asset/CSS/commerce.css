@@ -1,34 +1,14 @@
-/* Styles par défaut pour les grands écrans */
-.page-commerce h1 {
+*{
     margin: 0;
-    background-color: #A8C9DF;
     padding: 0;
-    padding-top: 21px;
-    color: #333;
-    text-align: center;
-    margin-top: 90px;
 }
-
-.actualites-commerce2 {
+h1{
+    margin-bottom: 20px; 
     background-color: #A8C9DF;
+    text-align: center;
+}
+.container-commerce{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
 }
-
-.actualite-commerce {
-    margin: 10px;
-    background-color: #EEF2F2;
-    border-radius: 5px;
-    text-align: center;
-    min-height: 300px;
-}
-
-.actualite-commerce img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin: 20px auto 0;
-    display: block;
-}
-

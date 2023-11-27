@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
 		{% block stylesheet %}
 		
-		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+		
 		<link rel="stylesheet" href="https://cdn.syncfusion.com/ej2/material.css" />
 		<link rel="stylesheet" href={{ asset('css/headerpage.css') }} />
 		<link rel="stylesheet" href={{ asset('css/footerpage.css') }} />
@@ -14,6 +14,7 @@
 		<link rel="stylesheet" href={{ asset('css/commerce.css') }} />
 		<link rel="stylesheet" href={{ asset('css/homepage.css') }} />
 		<link rel="stylesheet" href={{ asset('css/exploitation.css') }} />
+		<link rel="stylesheet" href={{ asset('css/meteo.css') }} />
 		{% endblock %}
 
 		{% block syncfusionjs %}
@@ -30,7 +31,7 @@
 
 	</head>
 
-	<body>
+	<body>  
 		{% include 'HeaderPage.html.twig' %}
 
 	   {% block content %}{% endblock %}

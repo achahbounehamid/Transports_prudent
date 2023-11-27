@@ -5,43 +5,15 @@
 {% block content %}
 
 <body>
-    <div class="page-rh">
+    
         <h1>Ressources Humaines</h1>
-        <section class="actualites-rh">
-            <article class="actualite-rh">
-                {# <img src="asset/images/camenbert.png" alt=""> #}
-                <div id="tauxAbsence">
-        
-  
-                    </div>
-            </article>
-
-            <article class="actualite-rh">  
-                <div id="absenteeismChartContainer">
-        
-  
-                    </div>
-            </article>
+        <section class="resources-humaine">
+                <div id="tauxAbsence"></div>
+                <div id="absenteeismChartContainer"></div>
         </section>
 
-        <h1>Répartition</h1>
+        <h1> Faites nous part de votre satisfaction</h1>
         <section class="actualites-rh">
-            <article class="actualite-rh">  
-                  <div id="genderDistributionChartContainer">
-       
-            </div>
-            </article>
-
-            <article class="actualite-rh"> 
-                <div id="satisfactionChartContainer">
-       
-            </div>
-            </article>
-        </section>
-
-        {# <h1> Faites nous part de votre satisfaction</h1>
-        <section class="actualites-rh">
-            <article class="actualite-rh">
                 <div class="satisfaction-buttons">
 
                     <img src="{{ asset('./images/happy.png') }}" alt="Content" onclick="recordSatisfaction('Content')">
@@ -53,9 +25,8 @@
                 </div>
                 <div id="selected-satisfaction"></div>
 
-            </article>
-        </section> #}
-    </div>
+        </section>
+    
 </body>
 
 <script>

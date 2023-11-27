@@ -4,12 +4,8 @@ class CommerceModel extends Model
 {
     public function getTopClientcADepartement()
     {
-        $req = $this->getDb()->prepare('SELECT CodeDepartement, SUM(total_chiffre_affaires) AS total_chiffre_affaires
-        FROM vw_ca_par_departement
-        GROUP BY CodeDepartement
-        ORDER BY CodeDepartement
-        LIMIT 10;
-        ');
+        $req = $this->getDb()->prepare('SELECT CodeDepartement, chiffre_affaires FROM vw_ca_par_departement WHERE annee = 2023 OR annee = 2022 ORDER BY chiffre_affaires DESC LIMIT 10');
+        
         $req->execute();
 
         // Récupérer les résultats sous forme de tableau associatif
