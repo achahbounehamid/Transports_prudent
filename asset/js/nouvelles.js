@@ -8,51 +8,63 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             // Met à jour le contenu HTML avec les actualités
-            displayNews(data.articles.slice(0, 1)); // Afficher seulement les 5 premiers articles
+            displayNews(data.articles); // Afficher toutes les actualités
         })
         .catch(error => console.error('Erreur lors de la récupération des actualités', error));
 
     function displayNews(articles) {
-        let swiperWrapper = document.createElement('div');
-        swiperWrapper.classList.add('swiper-container');
+        let currentIndex = 0;
 
-        let swiperSlide = document.createElement('div');
-        swiperSlide.classList.add('swiper-wrapper');
+        function showNews(startIndex) {
+            let newsWrapper = document.createElement('div');
+            newsWrapper.classList.add('news-wrapper');
+        
+            // Affiche trois articles à la fois
+            for (let i = startIndex; i < startIndex + 4 && i < articles.length; i++) {
+                let article = articles[i];
+                let newsItem = document.createElement('div');
+                newsItem.classList.add('card');
+        
+                // Crée des éléments pour le titre, la description, etc.
+                let title = document.createElement('h2');
+                title.textContent = article.title;
+        
+                let description = document.createElement('p');
+                description.textContent = article.description;
+        
+                let source = document.createElement('p');
+                source.textContent = 'Source: ' + article.source.name;
+        
+                // Ajoute les éléments au conteneur
+                newsItem.appendChild(title);
+                newsItem.appendChild(description);
+                newsItem.appendChild(source);
+        
+                newsWrapper.appendChild(newsItem);
+            }
+        
+            // Ajoute le conteneur d'articles au conteneur principal
+            newsContainer.innerHTML = '';
+            newsContainer.appendChild(newsWrapper);
+        }
+        
 
-        articles.forEach(article => {
-            let slideItem = document.createElement('div');
-            slideItem.classList.add('swiper-slide');
+        // Affiche le premier article
+        showNews(currentIndex);
 
-            let newsItem = document.createElement('div');
-            newsItem.classList.add('card');
-
-            // Crée des éléments pour le titre, la description, etc.
-            let title = document.createElement('h2');
-            title.textContent = article.title;
-
-            let description = document.createElement('p');
-            description.textContent = article.description;
-
-            // Ajoute un gestionnaire d'événements pour afficher le contenu complet
-            description.addEventListener('click', function () {
-                window.location.href = article.url;// Tu peux remplacer ceci par la logique d'affichage que tu veux
-            });
-
-            let source = document.createElement('p');
-            source.textContent = 'Source: ' + article.source.name;
-
-            // Ajoute les éléments au conteneur
-            newsItem.appendChild(title);
-            newsItem.appendChild(description);
-            newsItem.appendChild(source);
-
-            slideItem.appendChild(newsItem);
-            swiperSlide.appendChild(slideItem);
+        // Gestion des boutons de navigation
+        document.getElementById('prev-btn').addEventListener('click', function () {
+            if (currentIndex > 0) {
+                currentIndex--;
+                showNews(currentIndex);
+            }
         });
 
-        swiperWrapper.appendChild(swiperSlide);
-        newsContainer.appendChild(swiperWrapper);
-
-       
+        document.getElementById('next-btn').addEventListener('click', function () {
+            if (currentIndex < articles.length - 1) {
+                currentIndex++;
+                showNews(currentIndex);
+            }
+        });
     }
 });

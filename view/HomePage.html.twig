@@ -10,35 +10,35 @@
 		<h1>ACTUALITES</h1>
 		<section class="actualites-homepage">
 			<article class="meteo">
-				
-					<div
-						class="card">
-						<!-- Votre contenu HTML existant pour la carte -->
-						<div class="search">
-							<input type="text" placeholder="Entrer le nom de la ville" spellcheck="false">
-							<button><img src="{{ asset('images/search.png') }}" alt="Recherche"> 
-                            </button>
-						</div>
 
-						<div class="weather">
-							<img src="{{ asset('images/rain.png') }}" alt="" class="weather-icon">
-							<h1 class="temp">11°C</h1>
-							<h2 class="city">Louhans</h2>
-							<div class="details">
-								<div class="col">
-									<img src="{{ asset('images/humidity.png') }}" alt="">
-									<p class="humidity">60%</p>
-									<p>Humidité</p>
-								</div>
-								<div class="col">
-									<img src="{{ asset('images/wind.png') }}" alt="">
-									<p class="wind">15km/h</p>
-									<p>Vitesse</p>
-								</div>
+				<div
+					class="card">
+					<!-- Votre contenu HTML existant pour la carte -->
+					<div class="search">
+						<input type="text" placeholder="Entrer le nom de la ville" spellcheck="false">
+						<button><img src="{{ asset('images/search.png') }}" alt="Recherche">
+						</button>
+					</div>
+
+					<div class="weather">
+						<img src="{{ asset('images/rain.png') }}" alt="" class="weather-icon">
+						<h1 class="temp">11°C</h1>
+						<h2 class="city">Louhans</h2>
+						<div class="details">
+							<div class="col">
+								<img src="{{ asset('images/humidity.png') }}" alt="">
+								<p class="humidity">60%</p>
+								<p>Humidité</p>
+							</div>
+							<div class="col">
+								<img src="{{ asset('images/wind.png') }}" alt="">
+								<p class="wind">15km/h</p>
+								<p>Vitesse</p>
 							</div>
 						</div>
 					</div>
-				
+				</div>
+
 			</article>
 
 			<article class="actualite-homepage">
@@ -48,15 +48,17 @@
 				<a href="https://www.zagaz.com/" class="lien">Lire la suite</a>
 			</article>
 
-			<article class="actualite-homepage">
-				{# <img src="asset/images/potentiel.png" alt="graphique prix du marché du transport">
-				<h3>Potentiel du marché à horizon 2027</h3>
-				<p>Les chiffres du marché Français du transport</p>
-				<a href="lien_vers_larticle" class="lien">Lire la suite</a> #}
-				<div id="news-container"></div>
-			</article>
+			<article class="actualite-homepage"></article>
 
 		</section>
+		<section class="nouvelles">
+			<div id="news-container" class="news-wrapper"></div>
+			<button id="prev-btn">
+				Précédent</button>
+			<button id="next-btn">Suivant
+			</button>
+		</section>
+
 
 		<h1>À PROPOS</h1>
 		<section class="apropos-homepage">
