@@ -6,14 +6,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchBtn = document.querySelector(".search button");
   const weatherIcon = document.querySelector(".weather-icon");
 
-  searchBtn.addEventListener("click", () => {
-    checkWeather(searchBox.value);
-  });
+  if (searchBox && searchBtn && weatherIcon) {
+    searchBtn.addEventListener("click", () => {
+      checkWeather(searchBox.value);
+    });
+  } else {
+    console.error("One or more elements not found.");
+  }
 
   async function checkWeather(city) {
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
     let data = await response.json();
-    console.log(data);
+
 
     document.querySelector(".city").innerHTML = data.name.replace("Arrondissement de","");
     document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";

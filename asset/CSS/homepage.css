@@ -1,12 +1,15 @@
-
+*{
+margin: 0;
+padding: 0;
+}
 
 .actualites-homepage {
     height: 250px;
     margin-bottom: 400px;
     background-color: #A8C9DF;
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; */
 }
 
 .actualite-homepage {
@@ -16,7 +19,7 @@
 }
 
 /* img meteo ect */
-.actualite-homepage img {
+.actualites-homepage img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
