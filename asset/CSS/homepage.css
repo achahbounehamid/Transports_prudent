@@ -7,18 +7,11 @@ padding: 0;
     height: 250px;
     margin-bottom: 400px;
     background-color: #A8C9DF;
-    /* display: flex;
+    display: flex; 
     flex-wrap: wrap;
-    justify-content: center; */
+    justify-content: space-around;
 }
 
-.actualite-homepage {
-    flex: 1 1 300px;
-    margin: 100px;
-    margin-top: 65px;
-}
-
-/* img meteo ect */
 .actualites-homepage img {
     max-width: 100%;
     height: auto;

@@ -3,18 +3,18 @@
   padding: 0;
 }
 .meteo .card {
-  width: 20%;
-  /* max-width: 470px; */
+  /* width: 50%; */
+  max-width: 470px;
   background: linear-gradient(135deg, #00feba, #5b548a);
   color: #fff;
-  margin: 67px auto 0;
+  /* margin: 67px auto 0; */
   border-radius: 20px;
   padding: 12px 11px;
   text-align: center;
   height: 360px;
 }
 .meteo .card .search {
-  width: 100%;
+  /* width: 50%; */
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -8,69 +8,43 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
-            // Met à jour le contenu HTML avec les actualités
-            displayNews(data.articles); // Afficher toutes les actualités
+            // Met à jour le contenu HTML avec la première actualité
+            displayNews(data.articles[0]);
         })
         .catch(error => console.error('Erreur lors de la récupération des actualités', error));
 
-    function displayNews(articles) {
-        let currentIndex = 0;
+    function displayNews(article) {
+        let newsWrapper = document.createElement('div');
+        newsWrapper.classList.add('news-wrapper');
 
-        function showNews(startIndex) {
-            let newsWrapper = document.createElement('div');
-            newsWrapper.classList.add('news-wrapper');
-        
-            // Affiche trois articles à la fois
-            for (let i = startIndex; i < startIndex + 4 && i < articles.length; i++) {
-                let article = articles[i];
-                let newsItem = document.createElement('div');
-                newsItem.classList.add('card');
+        let newsItem = document.createElement('div');
+        newsItem.classList.add('card');
 
-                // Crée des éléments pour le titre, la description, etc.
-                let title = document.createElement('h2');
-                title.textContent = article.title;
-        
-                let description = document.createElement('p');
-                description.textContent = article.description;
-        
-                let source = document.createElement('p');
-                source.textContent = 'Source: ' + article.source.name;
+        // Crée des éléments pour le titre, la description, etc.
+        let title = document.createElement('h2');
+        title.textContent = article.title;
 
-                // Ajoute les éléments à la carte
-                newsItem.appendChild(title);
-                newsItem.appendChild(description);
-                newsItem.appendChild(source);
+        let description = document.createElement('p');
+        description.textContent = article.description;
 
-                // Ajoute un gestionnaire d'événements clic à la carte
-                newsItem.addEventListener('click', function () {
-                    window.open(googleNewsUrl, '_blank');
-                });
+        let source = document.createElement('p');
+        source.textContent = 'Source: ' + article.source.name;
 
-                // Ajoute la carte au conteneur
-                newsWrapper.appendChild(newsItem);
-            }
-        
-            // Ajoute le conteneur d'articles au conteneur principal
-            newsContainer.innerHTML = '';
-            newsContainer.appendChild(newsWrapper);
-        }
+        // Ajoute les éléments à la carte
+        newsItem.appendChild(title);
+        newsItem.appendChild(description);
+        newsItem.appendChild(source);
 
-        // Affiche le premier article
-        showNews(currentIndex);
-
-        // Gestion des boutons de navigation
-        document.getElementById('prev-btn').addEventListener('click', function () {
-            if (currentIndex > 0) {
-                currentIndex--;
-                showNews(currentIndex);
-            }
+        // Ajoute un gestionnaire d'événements clic à la carte
+        newsItem.addEventListener('click', function () {
+            window.open(googleNewsUrl, '_blank');
         });
 
-        document.getElementById('next-btn').addEventListener('click', function () {
-            if (currentIndex < articles.length - 1) {
-                currentIndex++;
-                showNews(currentIndex);
-            }
-        });
+        // Ajoute la carte au conteneur
+        newsWrapper.appendChild(newsItem);
+
+        // Ajoute le conteneur d'articles au conteneur principal
+        newsContainer.innerHTML = '';
+        newsContainer.appendChild(newsWrapper);
     }
 });

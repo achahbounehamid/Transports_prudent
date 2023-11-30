@@ -9,7 +9,11 @@ $router->setBasePath('/Transports_prudent');
 
 // Définition des routes
 $router->map('GET', '/', 'HomePageController#home', 'home');
-$router->map('GET', '/graphiqueCommerce', 'CommerceController#commerce', 'commerce'); // Nouvelle route pour le graphique
+
+
+$router->map('GET', '/graphiqueCommerce', 'CommerceController#commerce', 
+
+'commerce'); // Nouvelle route pour le graphique
 $router->map('GET', '/graphiqueRessourceHumaines', 'RessourceHumaineController#ressourceHumaines', 'ressourceHumaines');
 
 // la route pour la page "Resource humaine"
