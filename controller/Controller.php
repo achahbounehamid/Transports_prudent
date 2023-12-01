@@ -3,6 +3,7 @@ abstract class Controller
 {
     private static $loader;
     private static $twig;
+    
 
     private static function setLoader()
     {

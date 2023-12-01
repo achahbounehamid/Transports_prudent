@@ -10,6 +10,12 @@ $router->setBasePath('/Transports_prudent');
 // Définition des routes
 $router->map('GET', '/', 'HomePageController#home', 'home');
 
+// REGISTER
+$router->map('GET|POST', '/registration', 'UtilisateurController#register', 'register');
+// LOGIN/OUT
+$router->map('GET|POST', '/login', 'UtilisateurController#login', 'loginForm');
+$router->map('GET', '/logout', 'UtilisateurController#logout', 'logout');
+
 
 $router->map('GET', '/graphiqueCommerce', 'CommerceController#commerce', 
 
