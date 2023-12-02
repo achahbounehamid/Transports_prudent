@@ -1,3 +1,5 @@
+
+
 const apiKey = "51ce942ff61d9f82281c4b75aae585ef";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
@@ -15,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function checkWeather(city) {
+
+    
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
     let data = await response.json();
 

@@ -6,8 +6,7 @@ let chartDataPie = dataPie.map(function (item) {
 });
 
 let pieChart = new ej.charts.AccumulationChart({
-    width: '400px', 
-    height: '300px', 
+   
     series: [
         {
             type: 'Pie',
@@ -54,8 +53,7 @@ dataSpline.forEach(function (item) {
 // deuxieme graphique
 
 let splineChart = new ej.charts.Chart({
-    width: '500px', 
-    height: '400px', 
+   
     primaryXAxis: {
         title: 'Mois',
         valueType: 'Category'
@@ -97,7 +95,7 @@ let splineChart = new ej.charts.Chart({
             name:'2022',
         }
     ],
-    title:'Chiffre d\affaire par département',
+    title:'Chiffre d\affaire par année',
 
 },'#CaParMois');
 

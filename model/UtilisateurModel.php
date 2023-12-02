@@ -1,4 +1,5 @@
 <?php
+require_once './class/Utilisateur.php';
 
 class UtilisateurModel extends Model
 {
@@ -29,7 +30,7 @@ class UtilisateurModel extends Model
 
     public function getUtilisateurId($Id)
     {
-        $req = $this->getDb()->prepare('SELECT `id`, `nom`, `prenom`, `email`, `motDePasse` FROM `utilisateur` WHERE `utilisateur` = :id');
+        $req = $this->getDb()->prepare('SELECT `id`, `nom`, `prenom`, `email`, `motDePasse` FROM `utilisateur` WHERE `id` = :id');
         $req->bindParam(':id', $Id, PDO::PARAM_INT);
         $req->execute();
 

@@ -19,7 +19,6 @@
     margin-bottom: 90px;
     background-color: #A8C9DF;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -33,10 +32,18 @@
 
  .footer p{
     text-align: center;
+    
  }
  .footerCenter p {
-    text-align: center;
+    text-align: center; 
+  
+   
  }
+ .footerCenter p a{
+         color: black;
+       text-decoration: none;
+ }
+
 
 .footerCenter {
     border-left: solid;
@@ -46,6 +53,10 @@
     margin-top: 65px;
     margin-left: 230px;
    
+}
+.footer p a{
+    color: black;
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {

@@ -16,11 +16,11 @@
 	</body>
 
 	<script>
-        // Graphique en secteurs (Pie)
+       
 let dataPie = {{ topClientsData | json_encode | raw }};
-		// Graphique en spline
+		
 let dataSpline = {{ chiffreAffairesParMoisData | json_encode | raw }};
-	// ajouter les variables
+	
 </script>
 <script src="{{ asset('./js/commerce.js') }}"></script>
 {% endblock %}
