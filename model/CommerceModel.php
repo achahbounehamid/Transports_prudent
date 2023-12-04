@@ -49,7 +49,7 @@ class CommerceModel extends Model
         12 => 'Décembre'
     ];
 
-    foreach ($data as &$item) {
+    foreach ($data as $item) {
         $item['mois'] = $moisEnFrancais[$item['mois']];
     }
         return $data;
