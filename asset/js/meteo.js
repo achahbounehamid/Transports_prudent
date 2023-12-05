@@ -38,6 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
       weatherIcon.src = "images/drizzle.png";
     } else if (data.weather[0].main == "Mist") {
       weatherIcon.src = "images/mist.png";
+    } else{
+      weatherIcon.src = "images/clear.png";
     }
   }
   checkWeather("Louhans");

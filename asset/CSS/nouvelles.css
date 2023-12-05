@@ -6,8 +6,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
+   
   
-
 .card {
     height: 300px;
     width: 200px;
@@ -16,7 +16,8 @@
     padding: 16px;
     margin: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff; 
+    background-color: #fff;
+      cursor: pointer;
 }
 }
 .nouvelles {

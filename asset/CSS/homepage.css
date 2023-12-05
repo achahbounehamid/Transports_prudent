@@ -20,11 +20,10 @@ padding: 0;
 }
 
 
-
 .page-homepage h1 {
     margin: 0px;
     background-color: #A8C9DF;
-    padding: 0px;
+    padding: 30px;
     padding-top: 21px;
     color: #333;
     text-align: center;
@@ -54,6 +53,16 @@ padding: 0;
     text-align: center;
 }
 
+.prix-garburant img{
+    height: 327px;
+    width: 274px;
+    cursor: pointer;
+}
+.lien{
+   
+    text-decoration: none;
+
+}
 @media (max-width: 768px) {
     .actualites-homepage {
         height: unset;
