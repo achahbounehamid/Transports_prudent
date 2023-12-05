@@ -10,7 +10,7 @@
         <section class="actualites-rh row">
             <h1 class="col-12">Ressources Humaines</h1>
             <article class=" col-lg-6 col-md-6 col-sm-12">
-                <h3>Graphique</h3>
+                <h3>Masse salariale</h3>
 
 
                 <div class="chart-placeholder"></div>
@@ -20,20 +20,6 @@
                 <h3>Absentéïsme</h3>
 
                 <div id="absenteeismChartContainer" class="chart-placeholder"></div>
-
-            </article>
-        </section>
-
-        <section class=" actualites-rh row">
-            <article class=" col-lg-6 col-md-6 col-sm-12">
-                <h3>Répartition</h3>
-                <div id="genderDistributionChartContainer" class="chart-placeholder"></div>
-
-            </article>
-
-            <article class="col-lg-6 col-md-6 col-sm-12">
-                <h3>Satisfaction</h3>
-                <div id="satisfactionChartContainer" class="chart-placeholder"></div>
 
             </article>
         </section>
@@ -71,7 +57,14 @@
 </body>
 
 <script>
-    let data = {{ dataRessourceHumaine| json_encode | raw }};
+
+        // Intégration des données JSON dans le code JavaScript
+        let dataTauxAbsence = {{ dataRessourceHumaine.resultTauxAbsence | json_encode | raw }};
+        let dataMasseSalaire = {{ dataRessourceHumaine.resultMasseSalaire | json_encode | raw }};
+
+        
+ 
 </script>
+
 <script src="{{ asset('./js/ressourceHumaine.js') }}"></script>
 {% endblock %}
