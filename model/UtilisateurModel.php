@@ -1,6 +1,7 @@
 <?php
 require_once './class/Utilisateur.php';
 
+
 class UtilisateurModel extends Model
 {
     public function creeUtilisateur(utilisateur $utilisateur)
@@ -9,16 +10,16 @@ class UtilisateurModel extends Model
          $prenom = $utilisateur->getPrenom();
          $email = $utilisateur->getEmail();
          $motDePasse = $utilisateur->getMotDePasse();
-
         $req = $this->getDb()->prepare("INSERT INTO `utilisateur` (`nom`, `prenom`, `email`, `motDePasse`) VALUES (:nom, :prenom, :email, :motDePasse)");
         $req->bindParam(":nom", $nom, PDO::PARAM_STR);
         $req->bindParam(":prenom", $prenom, PDO::PARAM_STR);
         $req->bindParam(":email", $email, PDO::PARAM_STR);
         $req->bindParam(":motDePasse", $motDePasse, PDO::PARAM_STR);
-      
-        $req->execute();
+        $req->execute();    
     }
 
+
+    
     public function getUtilisateurEmail(string $email)
     {
         $req = $this->getDb()->prepare("SELECT `id`, `email`, `motDePasse` FROM `utilisateur` WHERE `email` = :email");

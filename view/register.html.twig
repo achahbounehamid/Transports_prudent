@@ -9,6 +9,8 @@
 {% if message %}
     <div id="message" data-content="{{ message }}"></div>
 {% endif %}
+
+
     <div class="container right-panel-active">
         <div class="container__form container--signup">
             <form method="POST" action="{{ path('register') }}" class="form" id="form1">
@@ -27,6 +29,8 @@
                 </button>
             </form>
         </div>
+
+
         <div class="container__form container--signin">
             <form action="{{ path('loginForm') }}" method="POST" class="form" id="form2">
                 <h2 class="form__title">Bienvenue</h2>
@@ -40,6 +44,8 @@
 				</button>
             </form>
         </div>
+
+
         <div class="container__overlay">
             <div class="overlay">
                 <div class="overlay__panel overlay--left">

@@ -1,17 +1,15 @@
+
 let chartDataPie = dataPie.map(function (item) {
     return {
         x: item.Nom_DEPT,
         y: item.CodeDepartement
     };
 });
-
-let pieChart = new ej.charts.AccumulationChart({
-   
+let pieChart = new ej.charts.AccumulationChart({ 
     series: [
         {
             type: 'Pie',
             dataSource: chartDataPie,
-           
             xName: 'x',
             yName: 'y',
             //explode: true,
@@ -29,6 +27,8 @@ let pieChart = new ej.charts.AccumulationChart({
     //  format: '${point.x}: ${point.y}'
 }
 },'#chartContainer');
+
+
 
 // deuxieme graphique
 

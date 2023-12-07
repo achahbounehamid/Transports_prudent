@@ -1,9 +1,8 @@
 /* header  */
-body {
+* {
     margin: 0;
     padding: 0;
 }
-
 .logo {
     position: absolute;
     top: 10vh;
@@ -12,29 +11,25 @@ body {
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.5);
 }
-
-
-
 .containerHeader {
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 00)68%, rgba(255, 255, 255, 1) 96%), url('/Transports_prudent/asset//images/prudent.jpg');
-
     background-size: cover;
     height: 60vh;
     width: 100%;
     display: flex;
 }
-
+.connexion{
+    margin: 50px;
+}
 .navbar ul {
     list-style: none;
     display: flex;
     justify-content: center;
     padding: 0;
 }
-
 .navbar li {
     margin: 45px;
 }
-
 .nav-item a {
     display: flex;
     flex-direction: column;
@@ -50,9 +45,7 @@ body {
     border: 2px solid #000;
     margin-bottom: 5px;
     background-color: #EEF2F2;
-
 }
-
 .nav-item {
     margin: 0 30px;
 
@@ -67,7 +60,6 @@ body {
     margin-left: 5vh;
 
 }
-
 @media (max-width: 768px) {
     .containerHeader {
         height: 40vh;

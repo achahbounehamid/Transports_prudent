@@ -20,6 +20,7 @@
     background-color: #A8C9DF;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* une section d'articles du footer */

@@ -1,17 +1,21 @@
 <?php
 
-class CommerceModel extends Model
-{
-    public function getTopClientcADepartement()
-    {
-        $req = $this->getDb()->prepare('SELECT CodeDepartement, chiffre_affaires FROM vw_ca_par_departement WHERE annee = 2023 OR annee = 2022 ORDER BY chiffre_affaires DESC LIMIT 10');
-        
-        $req->execute();
+            class CommerceModel extends Model
+            {
+                public function getTopClientcADepartement()
+                {
+                    $req = $this->getDb()->prepare('SELECT 
+                    CodeDepartement,
+                    chiffre_affaires FROM vw_ca_par_departement 
+                    WHERE annee = 2023 OR annee = 2022 ORDER BY 
+                    chiffre_affaires DESC LIMIT 10');
+                    $req->execute();
+                    $data = $req->fetchAll(PDO::FETCH_ASSOC);
+                    return $data;
+                }
 
-        // Récupérer les résultats sous forme de tableau associatif
-        $data = $req->fetchAll(PDO::FETCH_ASSOC);
-        return $data;
-    }
+
+
     public function getChiffreAffairesParMois()
     {
         $req = $this->getDb()->prepare('
