@@ -1,5 +1,6 @@
-
+// Transformation des données pour le graphique circulaire (pie chart)
 let chartDataPie = dataPie.map(function (item) {
+    // Pour chaque élément dans dataPie, crée un nouvel objet avec les propriétés x et y
     return {
         x: item.Nom_DEPT,
         y: item.CodeDepartement
@@ -10,16 +11,16 @@ let pieChart = new ej.charts.AccumulationChart({
         {
             type: 'Pie',
             dataSource: chartDataPie,
-            xName: 'x',
-            yName: 'y',
+            xName: 'x',// Champ utilisé comme abscisse
+            yName: 'y',// Champ utilisé comme ordonnée
             //explode: true,
             //explodeOffset: '10%',
             dataLabel: {
-                visible: true,
-                position: 'Outside',
-                name: 'text'
-            }
+                visible: true, // Affiche les étiquettes de données sur le graphique
+                position: 'Outside', // Position des étiquettes (à l'extérieur des tranches)
+                name: 'text' // Champ utilisé pour le texte de l'étiquette
         }
+    }
     ],
     title:'Chiffre d\affaire par département',
     tooltip: {
@@ -27,8 +28,6 @@ let pieChart = new ej.charts.AccumulationChart({
     //  format: '${point.x}: ${point.y}'
 }
 },'#chartContainer');
-
-
 
 // deuxieme graphique
 
@@ -49,8 +48,6 @@ dataSpline.forEach(function (item) {
         });
     }
 });
-
-// deuxieme graphique
 
 let splineChart = new ej.charts.Chart({
    
@@ -78,7 +75,7 @@ let splineChart = new ej.charts.Chart({
             },
             width: 4,
             fill: 'red',
-            name:'2023',
+            name:'2022',
         },
         {
             type: 'Line',
@@ -92,7 +89,7 @@ let splineChart = new ej.charts.Chart({
             },
             width: 4,
             fill: 'green',
-            name:'2022',
+            name:'2023',
         }
     ],
     title:'Chiffre d\affaire par année',

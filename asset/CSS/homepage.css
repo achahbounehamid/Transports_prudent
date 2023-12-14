@@ -2,7 +2,11 @@
 margin: 0;
 padding: 0;
 }
-
+/* h3{
+    margin-bottom: 20px; 
+   font-size: 20px;
+    text-align: center;
+} */
 .actualites-homepage {
     height: 250px;
     margin-bottom: 400px;
@@ -54,7 +58,7 @@ padding: 0;
 }
 
 .prix-garburant img{
-    height: 327px;
+    height: 375px;
     width: 274px;
     cursor: pointer;
 }

@@ -11,5 +11,13 @@ h1{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    height: auto;
+
+}
+
+
+
+@media (max-width: 1620px){
+    h1{
+        display: none;
+    }
 }

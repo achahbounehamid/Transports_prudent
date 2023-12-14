@@ -26,7 +26,8 @@ class UtilisateurController extends Controller
             
             $model->creeUtilisateur($utilisateurs);
             // Redirection vers la page d'inscription après avoir créé l'utilisateur
-            header('Location: ' . $router->generate('register'));
+            header('Location: ' . $router->generate('home'));
+            exit();
         } else {
             // Si la requête n'est pas de type POST, afficher le formulaire d'inscription
             echo self::render('register.html.twig', []);
@@ -45,13 +46,14 @@ class UtilisateurController extends Controller
 
             if ($utilisateur) {
                 if (password_verify($motDePasse, $utilisateur->getMotDePasse())) {
+                    session_start();
                     $_SESSION['id'] = $utilisateur->getId();
                     $_SESSION['email'] = $utilisateur->getEmail();
                     $_SESSION['connect'] = true;
                     $_SESSION['nom'] = $utilisateur->getNom();
                     global $router;
                     header('Location: ' . $router->generate('home'));
-                    exit();
+                    
                 } else {
                     $message = "Email / mot de passe incorrect!";
                     echo self::render('register.html.twig', ['message' => $message]);

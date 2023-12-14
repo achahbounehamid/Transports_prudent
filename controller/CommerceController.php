@@ -1,6 +1,6 @@
 <?php
 
-require_once './model/CommerceModel.php';
+// require_once './model/CommerceModel.php';
 
 
 class CommerceController extends Controller

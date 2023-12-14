@@ -19,7 +19,8 @@
     display: flex;
 }
 .connexion{
-    margin: 50px;
+    margin: 100px;
+  
 }
 .navbar ul {
     list-style: none;
@@ -60,9 +61,11 @@
     margin-left: 5vh;
 
 }
+
 @media (max-width: 768px) {
     .containerHeader {
         height: 40vh;
+        display: flex;
     }
 
     .titre {
@@ -70,11 +73,12 @@
     }
 
     .logo {
-       top: 0vh; 
+       top: 0; 
        right: unset;
        border-radius: unset;
        width: 100%;
        text-align: center;
+       
     }
 
     .actualite-commerce {
@@ -82,5 +86,10 @@
     }
     .navbar ul {
          display: flow-root;
+    }
+    
+    .containerHeader{
+        display: flex;
+        flex-direction: column;
     }
 }

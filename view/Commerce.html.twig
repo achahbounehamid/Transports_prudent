@@ -6,12 +6,12 @@
 {% block content %}
 	<h1 >Commerce</h1>
 	<div class="container-commerce">			
-		<div id="chartContainer"></div>
+		<div id="chartContainer" ></div>
 		
 		<div id="CaParMois"></div>
 	</div>	
 <script>
-let dataPie = {{ topClientsData | json_encode | raw }};	
+let dataPie = JSON.parse('{{ topClientsData | json_encode | raw }}');
 let dataSpline = {{ chiffreAffairesParMoisData
  | json_encode | raw }};
 </script>
